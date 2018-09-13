@@ -13,7 +13,7 @@ const BackgroundView = styled.div`
 `;
 
 const Container = styled.div`
-    padding: 0 20%;
+    padding: 0 20% 67px 20%;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -50,6 +50,7 @@ const TopBar = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 50px;
+    margin-bottom: 67px;
 `;
 
 const Wrapper = styled.div`

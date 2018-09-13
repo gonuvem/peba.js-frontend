@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const githubLogo = require('../Assets/images/github-logo.svg');
 
-const Wrapper = styled.a`
+const Wrapper = styled.div`
     width: 122px;
     height: 27px;
     background-color: #E6E6E6;
@@ -11,7 +11,7 @@ const Wrapper = styled.a`
     display: flex;
     align-items: center;
     padding: 0 4px;
-    text-decoration: none
+    cursor: pointer
 `;
 
 const Text = styled.p`
@@ -33,7 +33,7 @@ export default class GithubButton extends PureComponent {
 
     render() {
         return(
-            <Wrapper href='#'>
+            <Wrapper onClick={() => {}}>
                 <Logo src={githubLogo} />
                 <Text>Contribua</Text>
             </Wrapper>
