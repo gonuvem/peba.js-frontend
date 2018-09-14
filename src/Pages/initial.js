@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { findDOMNode } from 'react-dom'
-import { Header, Search, Map } from '../Components';
+import { Header, Search, Map, Footer } from '../Components';
 import styled from 'styled-components';
 
 const logo = require('../Assets/images/peba_logo.png');
@@ -81,6 +80,7 @@ export default class Initial extends Component {
                         <Map ref='map'/>
                     </Section>
                 </Content>
+                <Footer />
             </Container>
         );
     }
