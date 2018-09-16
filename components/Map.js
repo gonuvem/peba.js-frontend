@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import ReactSVG from 'react-svg';
-import '../Assets/css/map.css';
+import '../static/css/map.css';
 
-const map = require('../Assets/images/Brazil_Map.svg');
+const map = require('../static/images/Brazil_Map.svg');
 
 const states = [
     'RO',

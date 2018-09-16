@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
-import { Header, Search, Map, Footer } from '../Components';
+import { Map, Layout, Search } from '../components';
 import styled from 'styled-components';
 
-const logo = require('../Assets/images/peba_logo.png');
+const logo = require('../static/images/peba_logo.png');
 
 const Logo = styled.img`
     width: 223px;
     height: 223px;
     object-fit: contain;
-    margin-bottom: 30px
-`;
-
-const Container = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: column
+    margin-bottom: 30px;
 `;
 
 const Title = styled.h2`
@@ -35,13 +29,13 @@ const Content = styled.div`
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: 20px 20%
+    padding: 20px 20%;
 `;
 
 const AboutText = styled.a`
     color: #4B4B4B;
     font-size: 17px;
-    font-family: Roboto
+    font-family: Roboto;
 `;
 
 const Section = styled.div`
@@ -50,15 +44,31 @@ const Section = styled.div`
     margin-bottom: 50px;
 `;
 
+const MapContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`;
+
+const HeaderContainer = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+`;
+
+const HeaderContent = () => (
+    <HeaderContainer>
+        <Logo src={logo} />
+        <Search />
+    </HeaderContainer>
+)
+
 export default class Initial extends Component {
 
     render() {
         return (
-            <Container>
-                <Header>
-                    <Logo src={logo}/>
-                    <Search />
-                </Header>
+            <Layout headerContent={<HeaderContent />}>
                 <Content>
                     <Section>
                         <TitleContainer>
@@ -77,11 +87,12 @@ export default class Initial extends Component {
                         <TitleContainer>
                             <Title>Escolha por estado</Title>
                         </TitleContainer>
-                        <Map ref='map'/>
+                        <MapContainer>
+                            <Map ref='map'/>
+                        </MapContainer>
                     </Section>
                 </Content>
-                <Footer />
-            </Container>
+            </Layout>
         );
     }
 }
