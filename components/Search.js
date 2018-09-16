@@ -10,7 +10,7 @@ const TextInput = styled.input`
     font-size: 17px;
     font-family: Roboto;
     font-weight: 500;
-    outline: none
+    outline: none;
 `;
 
 const Wrapper = styled.div`
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
     width: 575px;
     height: 35px;
     border-radius: 4px;
-    padding: 0 15px
+    padding: 0 15px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 `;
 
@@ -35,14 +35,14 @@ const SearchIcon = styled.img`
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: flex-start
+    align-items: flex-start;
 `;
 
 const ExplanationText = styled.p`
     font-family: Roboto;
     font-size: 14px;
     color: #B5B5B5;
-    margin: 0
+    margin: 0;
 `;
 
 export default class Search extends PureComponent {
