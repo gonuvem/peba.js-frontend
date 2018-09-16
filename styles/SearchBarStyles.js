@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 3px;
     background-color: white;
     width: 575px;
     height: 35px;

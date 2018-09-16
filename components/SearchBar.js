@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import Link from 'next/link';
 import Router from 'next/router';
 import {
     TextInput,
@@ -7,7 +6,7 @@ import {
     SearchIcon,
     Container,
     ExplanationText
-} from '../styles/SearchStyles';
+} from '../styles/SearchBarStyles';
 import { searchIcon } from '../general/Constants';
 
 export default class SearchBar extends PureComponent {
