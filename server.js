@@ -9,11 +9,17 @@ app.prepare()
 .then(() => {
   const server = express()
 
-/*server.get('/p/:id', (req, res) => {
-    const actualPage = '/post'
-    const queryParams = { id: req.params.id }
-    app.render(req, res, actualPage, queryParams)
-})*/
+  server.get('/search/:text', (req, res) => {
+      const actualPage = '/search'
+      const queryParams = { text: req.params.text }
+      app.render(req, res, actualPage, queryParams)
+  })
+
+  server.get('/search', (req, res) => {
+    const actualPage = '/'
+    //const queryParams = { text: req.params.text }
+    app.render(req, res, actualPage)
+  })
 
   server.get('*', (req, res) => {
     return handle(req, res)

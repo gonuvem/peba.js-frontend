@@ -30,9 +30,9 @@ export default class Search extends Component {
                         <EvidenceText>
                             {this.state.politicians}
                         </EvidenceText>
-                        {' '}políticos foram encontrados para a pesquisa{' '}
+                        {' '}político(s) foram encontrados para a pesquisa{' '}
                         <EvidenceText>
-                            PT
+                            {this.props.reserachText}
                         </EvidenceText>
                     </ResultText>
                     <Paginator 
@@ -64,4 +64,10 @@ export default class Search extends Component {
             </Layout>
         );
     }
+}
+
+Search.getInitialProps = async context => {
+    const { text } = context.query;
+
+    return { reserachText: text };
 }

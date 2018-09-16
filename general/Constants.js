@@ -23,12 +23,12 @@ export const headerLinks = [
     },
     {
         name: 'Sobre o Projeto',
-        href: '/index/#about',
+        href: '/index#about',
         as: '/#about'
     },
     {
         name: 'Escolha por Estado',
-        href: '/index/#map',
+        href: '/index#map',
         as: '/#map'
     },
     {
