@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Header, Search, Map, Footer } from '../Components';
+import { Header, Search, Map, Footer } from '../components';
 import styled from 'styled-components';
 
-const logo = require('../Assets/images/peba_logo.png');
+const logo = require('../static/images/peba_logo.png');
 
 const Logo = styled.img`
     width: 223px;

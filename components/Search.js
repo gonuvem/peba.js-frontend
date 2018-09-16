@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-const searchIcon = require('../Assets/images/search.svg');
+const searchIcon = require('../static/images/search.svg');
 
 const TextInput = styled.input`
     width: 90%;

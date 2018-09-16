@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import ReactSVG from 'react-svg';
 
-const thcLogo = require('../Assets/images/teresinahc.png');
-const gnLogo = require('../Assets/images/gonuvem.png');
-const faceIcon = require('../Assets/images/face-icon.svg');
-const instaIcon = require('../Assets/images/insta-icon.svg');
+const thcLogo = require('../static/images/teresinahc.png');
+const gnLogo = require('../static/images/gonuvem.png');
+const faceIcon = require('../static/images/face-icon.svg');
+const instaIcon = require('../static/images/insta-icon.svg');
 
 const BackgroundView = styled.div`
     width: 100%;

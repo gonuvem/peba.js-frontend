@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import GithubButton from './GithubButton';
 
-const header_bg = require('../Assets/images/header_bg.png');
-const logo = require('../Assets/images/peba_logo_navbar.png');
+const header_bg = require('../static/images/header_bg.png');
+const logo = require('../static/images/peba_logo_navbar.png');
 
 const BackgroundView = styled.div`
     width: 100%;

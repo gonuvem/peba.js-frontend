@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-const githubLogo = require('../Assets/images/github-logo.svg');
+const githubLogo = require('../static/images/github-logo.svg');
 
 const Wrapper = styled.div`
     width: 122px;
