@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import ReactSVG from 'react-svg';
+import Github from './GithubButton';
 
 const thcLogo = require('../static/images/teresinahc.png');
 const gnLogo = require('../static/images/gonuvem.png');
@@ -13,6 +14,8 @@ const BackgroundView = styled.div`
     background-image: linear-gradient(94deg, #313131, #2F2F2F);
     background-repeat: no-repeat;
     background-position: center;
+    position: absolute;
+    bottom: 0
 `;
 
 const Container = styled.div`
@@ -20,14 +23,14 @@ const Container = styled.div`
     flex: 1;
     height: 100%;
     padding: 0 20%;
-    align-items: center
+    align-items: center;
+    justify-content: space-between
 `;
 
 const Section = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    flex: 1;
     height: 87px
 `;
 
@@ -97,9 +100,17 @@ export default class Footer extends PureComponent {
                     <Section>
                         <Title>CONTATO</Title>
                         <LogosContainer>
-                            <ReactSVG src={instaIcon} style={SocialMediaIcon}/>
-                            <ReactSVG src={faceIcon} style={SocialMediaIcon}/>
+                            <a href='#' target='_blank'>
+                                <ReactSVG src={instaIcon} style={SocialMediaIcon}/>
+                            </a>
+                            <a href='#' target='_blank'>
+                                <ReactSVG src={faceIcon} style={SocialMediaIcon}/>
+                            </a>
                         </LogosContainer>
+                    </Section>
+                    <Section>
+                        <Title>CONTRIBUA</Title>
+                        <Github/>
                     </Section>
                 </Container>
             </BackgroundView>
