@@ -9,7 +9,7 @@ import {
     LinksList,
     HeaderLinks,
 } from '../styles//HeaderStyles';
-import { pebaLogo } from '../general/Constants';
+import { pebaLogoNavbar } from '../general/Constants';
 
 export default class Header extends Component {
     render() {
