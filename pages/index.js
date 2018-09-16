@@ -50,6 +50,12 @@ const Section = styled.div`
     margin-bottom: 50px;
 `;
 
+const MapContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center
+`;
+
 export default class Initial extends Component {
 
     render() {
@@ -77,7 +83,9 @@ export default class Initial extends Component {
                         <TitleContainer>
                             <Title>Escolha por estado</Title>
                         </TitleContainer>
-                        <Map ref='map'/>
+                        <MapContainer>
+                            <Map ref='map'/>
+                        </MapContainer>
                     </Section>
                 </Content>
                 <Footer />
