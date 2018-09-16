@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Search, Map, Footer } from '../components';
+import { Map, Layout, Search } from '../components';
 import styled from 'styled-components';
 
 const logo = require('../static/images/peba_logo.png');
@@ -9,12 +9,6 @@ const Logo = styled.img`
     height: 223px;
     object-fit: contain;
     margin-bottom: 30px;
-`;
-
-const Container = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: column;
 `;
 
 const Title = styled.h2`
@@ -56,15 +50,25 @@ const MapContainer = styled.div`
     justify-content: center;
 `;
 
+const HeaderContainer = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+`;
+
+const HeaderContent = () => (
+    <HeaderContainer>
+        <Logo src={logo} />
+        <Search />
+    </HeaderContainer>
+)
+
 export default class Initial extends Component {
 
     render() {
         return (
-            <Container>
-                <Header>
-                    <Logo src={logo}/>
-                    <Search />
-                </Header>
+            <Layout headerContent={<HeaderContent />}>
                 <Content>
                     <Section>
                         <TitleContainer>
@@ -88,8 +92,7 @@ export default class Initial extends Component {
                         </MapContainer>
                     </Section>
                 </Content>
-                <Footer />
-            </Container>
+            </Layout>
         );
     }
 }
