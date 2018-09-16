@@ -9,3 +9,5 @@ export const instaIcon = require('../static/images/insta-icon.svg');
 export const githubLogo = require('../static/images/github-logo.svg');
 export const searchIcon = require('../static/images/search.svg');
 export const pebaLogo = require('../static/images/peba_logo.png');
+export const nextIcon = require('../static/images/Next.svg');
+export const previousIcon = require('../static/images/Previous.svg');

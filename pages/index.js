@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, Layout, Search } from '../components';
+import { Map, Layout, SearchBar } from '../components';
 import {
     Logo,
     Title,
@@ -15,7 +15,7 @@ import { pebaLogo } from '../general/Constants';
 const HeaderContent = () => (
     <HeaderContainer>
         <Logo src={pebaLogo} />
-        <Search />
+        <SearchBar />
     </HeaderContainer>
 );
 

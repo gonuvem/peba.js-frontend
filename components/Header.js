@@ -18,7 +18,7 @@ export default class Header extends Component {
                 <Container>
                     <TopBar>
                         <Wrapper>
-                            <Logo src={pebaLogo} />
+                            <Logo src={pebaLogoNavbar} />
                             <LinksList>
                                 <HeaderLinks href='#'><li>Início</li></HeaderLinks>
                                 <HeaderLinks href='#'><li>Sobre o projeto</li></HeaderLinks>

@@ -8,7 +8,7 @@ import {
 } from '../styles/SearchStyles';
 import { searchIcon } from '../general/Constants';
 
-export default class Search extends PureComponent {
+export default class SearchBar extends PureComponent {
     render() {
         return (
             <Container>

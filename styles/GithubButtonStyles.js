@@ -8,12 +8,12 @@ export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     padding: 0 4px;
-    cursor: pointer
+    cursor: pointer;
 `;
 
 export const Text = styled.p`
     font-family: Roboto;
-    font-weight: 600
+    font-weight: 600;
     color: #2F2F2F;
     font-size: 14px;
 `;
@@ -22,5 +22,5 @@ export const Logo = styled.img`
     width: 22px;
     height: 22px;
     object-fit: contain;
-    margin-right: 12px
+    margin-right: 12px;
 `;
