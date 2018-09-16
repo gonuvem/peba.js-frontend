@@ -8,13 +8,13 @@ const Logo = styled.img`
     width: 223px;
     height: 223px;
     object-fit: contain;
-    margin-bottom: 30px
+    margin-bottom: 30px;
 `;
 
 const Container = styled.div`
     display: flex;
     flex: 1;
-    flex-direction: column
+    flex-direction: column;
 `;
 
 const Title = styled.h2`
@@ -35,13 +35,13 @@ const Content = styled.div`
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: 20px 20%
+    padding: 20px 20%;
 `;
 
 const AboutText = styled.a`
     color: #4B4B4B;
     font-size: 17px;
-    font-family: Roboto
+    font-family: Roboto;
 `;
 
 const Section = styled.div`
@@ -53,7 +53,7 @@ const Section = styled.div`
 const MapContainer = styled.div`
     width: 100%;
     display: flex;
-    justify-content: center
+    justify-content: center;
 `;
 
 export default class Initial extends Component {
