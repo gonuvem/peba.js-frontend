@@ -10,7 +10,7 @@ export default class GithubButton extends PureComponent {
 
     render() {
         return(
-            <Wrapper onClick={() => {}}>
+            <Wrapper href='' target='_blank'>
                 <Logo src={githubLogo} />
                 <Text>Contribua</Text>
             </Wrapper>

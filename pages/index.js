@@ -1,68 +1,23 @@
 import React, { Component } from 'react';
-import { Map, Layout, Search } from '../components';
-import styled from 'styled-components';
-
-const logo = require('../static/images/peba_logo.png');
-
-const Logo = styled.img`
-    width: 223px;
-    height: 223px;
-    object-fit: contain;
-    margin-bottom: 30px;
-`;
-
-const Title = styled.h2`
-    font-size: 42px;
-    color: #CC9C00;
-    font-family: Roboto;
-    font-weight: 800;
-    margin: 0 0 10px 0;
-`;
-
-const TitleContainer = styled.div`
-    width: 100%;
-    border-bottom: 3px solid #CC9C00;
-    margin-bottom: 10px;
-`;
-
-const Content = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 20px 20%;
-`;
-
-const AboutText = styled.a`
-    color: #4B4B4B;
-    font-size: 17px;
-    font-family: Roboto;
-`;
-
-const Section = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 50px;
-`;
-
-const MapContainer = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-`;
-
-const HeaderContainer = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-`;
+import { Map, Layout, SearchBar } from '../components';
+import {
+    Logo,
+    Title,
+    TitleContainer,
+    Content,
+    AboutText,
+    Section,
+    MapContainer,
+    HeaderContainer
+} from '../styles/IndexPageStyles';
+import { pebaLogo } from '../general/Constants';
 
 const HeaderContent = () => (
     <HeaderContainer>
-        <Logo src={logo} />
-        <Search />
+        <Logo src={pebaLogo} />
+        <SearchBar />
     </HeaderContainer>
-)
+);
 
 export default class Initial extends Component {
 
@@ -70,7 +25,7 @@ export default class Initial extends Component {
         return (
             <Layout headerContent={<HeaderContent />}>
                 <Content>
-                    <Section>
+                    <Section id='about'>
                         <TitleContainer>
                             <Title>Sobre o projeto</Title>
                         </TitleContainer>
@@ -83,7 +38,7 @@ export default class Initial extends Component {
                          política.
                         </AboutText>
                     </Section>
-                    <Section>
+                    <Section id='map'>
                         <TitleContainer>
                             <Title>Escolha por estado</Title>
                         </TitleContainer>

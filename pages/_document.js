@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>My page</title>
+          <title>PEBA</title>
           {css.map(file => (
             <link rel="stylesheet" href={`/_next/${file}`} key={file} />
           ))}

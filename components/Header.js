@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GithubButton from './GithubButton';
+import Link from 'next/link';
 import { 
     BackgroundView,
     Container,
@@ -7,9 +8,9 @@ import {
     Wrapper,
     Logo,
     LinksList,
-    HeaderLinks,
+    HeaderLink,
 } from '../styles//HeaderStyles';
-import { pebaLogo } from '../general/Constants';
+import { pebaLogoNavbar, headerLinks } from '../general/Constants';
 
 export default class Header extends Component {
     render() {
@@ -18,12 +19,15 @@ export default class Header extends Component {
                 <Container>
                     <TopBar>
                         <Wrapper>
-                            <Logo src={pebaLogo} />
+                            <Logo src={pebaLogoNavbar} />
                             <LinksList>
-                                <HeaderLinks href='#'><li>Início</li></HeaderLinks>
-                                <HeaderLinks href='#'><li>Sobre o projeto</li></HeaderLinks>
-                                <HeaderLinks href='#'><li>Escolha por estado</li></HeaderLinks>
-                                <HeaderLinks href='#'><li>Dicionário</li></HeaderLinks>
+                                {
+                                    headerLinks.map((element, index) => (
+                                        <Link key={index} href={element.href} as={element.as}>
+                                            <HeaderLink><li>{element.name}</li></HeaderLink>
+                                        </Link>
+                                    ))
+                                }
                             </LinksList>              
                         </Wrapper>    
                         <GithubButton/>
