@@ -30,7 +30,8 @@ export const LinksList = styled.ul`
     padding: 0;
 `;
 
-export const HeaderLinks = styled.a`
+export const HeaderLink = styled.a`
+    cursor: pointer;
     text-decoration: none;
     color: #B5B5B5;
     font-size: 14px;

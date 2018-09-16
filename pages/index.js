@@ -25,7 +25,7 @@ export default class Initial extends Component {
         return (
             <Layout headerContent={<HeaderContent />}>
                 <Content>
-                    <Section>
+                    <Section id='about'>
                         <TitleContainer>
                             <Title>Sobre o projeto</Title>
                         </TitleContainer>
@@ -38,7 +38,7 @@ export default class Initial extends Component {
                          política.
                         </AboutText>
                     </Section>
-                    <Section>
+                    <Section id='map'>
                         <TitleContainer>
                             <Title>Escolha por estado</Title>
                         </TitleContainer>

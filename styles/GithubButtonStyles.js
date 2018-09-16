@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.a`
+    text-decoration: none;
     width: 122px;
     height: 27px;
     background-color: #E6E6E6;

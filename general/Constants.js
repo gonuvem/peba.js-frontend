@@ -12,3 +12,28 @@ export const pebaLogo = require('../static/images/peba_logo.png');
 export const nextIcon = require('../static/images/Next.svg');
 export const previousIcon = require('../static/images/Previous.svg');
 export const informationIcon = require('../static/images/information-button.svg');
+
+//header links
+
+export const headerLinks = [
+    {
+        name: 'Início',
+        href: '/index',
+        as: '/'
+    },
+    {
+        name: 'Sobre o Projeto',
+        href: '/index/#about',
+        as: '/#about'
+    },
+    {
+        name: 'Escolha por Estado',
+        href: '/index/#map',
+        as: '/#map'
+    },
+    {
+        name: 'Dicionário',
+        href: '/index',
+        as: '/'
+    },
+]
