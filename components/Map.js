@@ -1,49 +1,31 @@
 import React, { PureComponent } from 'react';
 import ReactSVG from 'react-svg';
+import Router from 'next/router';
 import '../static/css/map.css';
+import {
+    map,
+    states
+} from '../general/Constants';
 
-const map = require('../static/images/Brazil_Map.svg');
-
-const states = [
-    'RO',
-    'AC',
-    'AM',
-    'RR',
-    'AP',
-    'TO',
-    'MT',
-    'GO',
-    'MS',
-    'MG',
-    'PR',
-    'RS',
-    'BA',
-    'PI',
-    'CE',
-    'RN',
-    'AL',
-    'SE',
-    'DF',
-    'PE',
-    'MA',
-    'PA',
-    'SP',
-    'RJ',
-    'ES',
-    'SC',
-    'PB'
-]
 
 export default class Map extends PureComponent {
+    constructor(props){
+        super(props);
+        this.addStateActions = this.addStateActions.bind(this);
+    }
 
-    /*componentDidMount() {
-        const components = document.getElementsByClassName('c')[0]
-        console.log(components)
-    }*/
+    addStateActions = element => {
+        const svgStates = element.getElementsByClassName('c');
+        Array.from(svgStates).forEach((element, index) => {
+            element.addEventListener('click', () => {
+                Router.push(`/search?text=${states[index]}`, `/search/${states[index]}`).then(() => window.scrollTo(0, 0));
+            })
+        })
+    }
 
     render() {
         return (
-            <ReactSVG src={map} className='map'/>
+            <ReactSVG src={map} onInjected={this.addStateActions} className='map'/>
         )
     }
 }

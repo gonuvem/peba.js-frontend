@@ -9,6 +9,7 @@ export const Container = styled.div`
 `;
 
 export const ResultText = styled.p`
+    text-align: center;
     margin: 0;
     font-size: 27px;
     font-weight: 500;
