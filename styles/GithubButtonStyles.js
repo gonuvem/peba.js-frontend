@@ -12,8 +12,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Text = styled.p`
-    font-family: Roboto;
-    font-weight: 600;
+    font-weight: 500;
     color: #2F2F2F;
     font-size: 14px;
 `;

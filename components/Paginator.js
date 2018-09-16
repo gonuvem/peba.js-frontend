@@ -17,13 +17,14 @@ export default class Paginator extends Component {
 
     render() {
         return(
-            <Container>
+            <Container style={this.props.style}>
                 <ControllerIconContainer onClick={() => this.props.onPreviousPress()}>
                     <ControllerIcon src={previousIcon} />
                 </ControllerIconContainer>
                     {
                         Array(this.props.numberOfPages).fill(0).map((element, index) => (
                             <Page 
+                            key={index}
                             onClick={() => this.props.onPagePress(index)} 
                             style={index === this.props.currentPage ? Selected : Unselected}
                             >

@@ -4,6 +4,7 @@ import Map from './Map';
 import Footer from './Footer';
 import Layout from './Layout';
 import Paginator from './Paginator';
+import PoliticianCard from './PoliticianCard';
 
 export {
     Header,
@@ -11,5 +12,6 @@ export {
     Map,
     Footer,
     Layout,
-    Paginator
+    Paginator,
+    PoliticianCard
 };

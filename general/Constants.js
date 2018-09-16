@@ -11,3 +11,4 @@ export const searchIcon = require('../static/images/search.svg');
 export const pebaLogo = require('../static/images/peba_logo.png');
 export const nextIcon = require('../static/images/Next.svg');
 export const previousIcon = require('../static/images/Previous.svg');
+export const informationIcon = require('../static/images/information-button.svg');

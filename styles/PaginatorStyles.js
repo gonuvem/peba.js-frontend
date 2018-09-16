@@ -28,7 +28,6 @@ export const Page = styled.div`
     height: 33px;
     border-radius: 8px;
     font-size: 27px;
-    font-family: Roboto;
     font-weight: 500;
     display: flex;
     align-items: center;

@@ -20,7 +20,7 @@ export const Logo = styled.img`
     width: 59px;
     height: 39px;
     object-fit: contain;
-    margin-right: 29px
+    margin-right: 29px;
 `;
 
 export const LinksList = styled.ul`
@@ -34,8 +34,8 @@ export const HeaderLinks = styled.a`
     text-decoration: none;
     color: #B5B5B5;
     font-size: 14px;
-    font-family: Roboto Medium;
-    margin-right: 22px
+    font-weight: 500;
+    margin-right: 22px;
 `;
 
 export const TopBar = styled.div`
@@ -50,5 +50,5 @@ export const TopBar = styled.div`
 
 export const Wrapper = styled.div`
     display: flex;
-    align-items: center
+    align-items: center;
 `;

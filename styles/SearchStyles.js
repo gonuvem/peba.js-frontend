@@ -5,7 +5,6 @@ export const TextInput = styled.input`
     border: none;
     color: #707070;
     font-size: 17px;
-    font-family: Roboto;
     font-weight: 500;
     outline: none;
 `;
@@ -36,7 +35,7 @@ export const Container = styled.div`
 `;
 
 export const ExplanationText = styled.p`
-    font-family: Roboto;
+    font-weight: 400;
     font-size: 14px;
     color: #B5B5B5;
     margin: 0;

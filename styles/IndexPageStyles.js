@@ -10,8 +10,7 @@ export const Logo = styled.img`
 export const Title = styled.h2`
     font-size: 42px;
     color: #CC9C00;
-    font-family: Roboto;
-    font-weight: 800;
+    font-weight: 700;
     margin: 0 0 10px 0;
 `;
 
@@ -31,7 +30,7 @@ export const Content = styled.div`
 export const AboutText = styled.a`
     color: #4B4B4B;
     font-size: 17px;
-    font-family: Roboto;
+    font-weight: 400;
 `;
 
 export const Section = styled.div`

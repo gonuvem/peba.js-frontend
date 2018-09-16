@@ -30,7 +30,6 @@ export const Title = styled.span`
     color: #CC9C00;
     font-size: 17px;
     letter-spacing: 0.15em;
-    font-family: Roboto;
     font-weight: 500;
     margin-bottom: 10px;
 `;
@@ -57,7 +56,6 @@ export const About = styled.p`
     max-width: 298px;
     font-size: 14px;
     color: #B4B4B4;
-    font-family: Roboto;
     font-weight: 300;
     letter-spacing: 0.015em;
     margin: 0;
