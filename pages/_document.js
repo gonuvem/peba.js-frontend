@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>PEBA</title>
+          <title>Peba - Indexador de Dados Públicos</title>
           {css.map(file => (
             <link rel="stylesheet" href={`/_next/${file}`} key={file} />
           ))}
