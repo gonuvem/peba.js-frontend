@@ -12,6 +12,7 @@ export const nextIcon = require('../static/images/Next.svg');
 export const previousIcon = require('../static/images/Previous.svg');
 export const informationIcon = require('../static/images/information-button.svg');
 export const map = require('../static/images/Brazil_Map.svg');
+export const emailIcon = require('../static/images/Email_Icon.svg');
 
 //header links
 export const headerLinks = [
@@ -67,3 +68,14 @@ export const states = [
     'Santa Catarina',
     'Paraíba'
 ];
+
+
+//functions
+
+export const formatDate = date => (
+    `${formatNumber(date.getDate())}/${date.getMonth() + 1}/${date.getFullYear()}`
+);
+
+const formatNumber = number => (
+    number < 10 ? `0${number}` : `${number}`
+);

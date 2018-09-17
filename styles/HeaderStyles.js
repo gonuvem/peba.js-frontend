@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { header_bg } from '../general/Constants';
 
 export const BackgroundView = styled.div`
+    position: relative;
     width: 100%;
     background-image: url(${header_bg});
-    background-repeat: no-repeat;
     background-position: center;
 `;
 
