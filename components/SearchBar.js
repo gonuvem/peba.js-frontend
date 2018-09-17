@@ -34,7 +34,13 @@ export default class SearchBar extends PureComponent {
     dispatchSearch = () => {
         this.state.searchText.length !== 0 
         ?
-            Router.push(`/search?text=${this.state.searchText}`, `/search/${this.state.searchText}`).then(() => window.scrollTo(0, 0))
+            Router.push({
+                pathname: `/search`,
+                query: {
+                    text: this.state.searchText,
+                },
+                asPath: `/search/?text=${this.state.searchText}`
+            }).then(() => window.scrollTo(0, 0))
         :
             alert('Digite um termo para busca');
     }
