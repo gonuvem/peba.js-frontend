@@ -16,7 +16,6 @@ import '../static/css/Paginator.css';
 export default class Paginator extends Component {
 
     render() {
-        console.log('Paginator props', this.props)
         return(
             <Container style={this.props.style}>
                 <ControllerIconContainer onClick={() => this.props.currentPage !==0 ? this.props.onPreviousPress() : undefined}>

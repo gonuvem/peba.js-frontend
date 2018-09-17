@@ -21,11 +21,11 @@ app.prepare()
     app.render(req, res, actualPage, queryParams)
   });
 
-  /*server.get('/search', (req, res) => {
-    const actualPage = '/'
-    //const queryParams = { text: req.params.text }
-    app.render(req, res, actualPage)
-  });*/
+  server.get('/search/textual', (req, res) => {
+    const actualPage = '/search'
+    const queryParams = { terms: req.query.terms }
+    app.render(req, res, actualPage, queryParams)
+  });
 
   server.get('/politician', (req, res) => {
     const actualPage = '/'
