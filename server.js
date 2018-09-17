@@ -9,9 +9,9 @@ app.prepare()
 .then(() => {
   const server = express()
 
-  server.get('/search/:text', (req, res) => {
+  server.get('/search/state', (req, res) => {
       const actualPage = '/search'
-      const queryParams = { text: req.params.text }
+      const queryParams = { text: req.query.text, state: req.query.state }
       app.render(req, res, actualPage, queryParams)
   });
 
@@ -21,11 +21,11 @@ app.prepare()
     app.render(req, res, actualPage, queryParams)
   });
 
-  server.get('/search', (req, res) => {
+  /*server.get('/search', (req, res) => {
     const actualPage = '/'
     //const queryParams = { text: req.params.text }
     app.render(req, res, actualPage)
-  });
+  });*/
 
   server.get('/politician', (req, res) => {
     const actualPage = '/'

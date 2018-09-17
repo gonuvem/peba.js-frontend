@@ -32,6 +32,7 @@ export default class PoliticianCard extends Component {
                     <Photo src={this.props.photo} />
                     <DetailsContainer>
                         <Name>{this.props.name}</Name>
+                        <DetailText>Cargo: {this.props.function}</DetailText>
                         <DetailText>Partido: {this.props.party}</DetailText>
                         <DetailText>Estado: {this.props.state}</DetailText>
                         <ExpensesText>Despesas: R$ {this.props.expenses}</ExpensesText>

@@ -22,6 +22,7 @@ export default class MyDocument extends Document {
             <link rel="stylesheet" href={`/_next/${file}`} key={file} />
           ))}
           <link rel="stylesheet" href="../static/css/index.css" />
+          <link rel="stylesheet" href="../static/css/Paginator.css" />
           {this.props.styleTags}
         </Head>
         <body>
