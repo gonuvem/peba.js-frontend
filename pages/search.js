@@ -44,6 +44,7 @@ export default class Search extends Component {
                     />
                     { Array(5).fill(0).map((element, index) => (
                         <PoliticianCard 
+                        id={1234}
                         key={index}
                         name='Tiririca' 
                         photo='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Tiririca_na_camara.jpg/200px-Tiririca_na_camara.jpg'

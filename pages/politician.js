@@ -43,7 +43,7 @@ export default class Politician extends Component {
 
 
 Politician.getInitialProps = async context => {
-    const { politicianId } = context.query;
+    const { id } = context.query;
     const props = {
         name: 'Francisco Everardo Oliveira da Silva',
         email: 'tiririca@camara.com',
