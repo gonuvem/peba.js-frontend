@@ -56,7 +56,7 @@ export const ButtonContainer = styled.div`
     border-radius: 4px;
     background-color: #FFD600;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
 `;
@@ -70,5 +70,6 @@ export const ButtonText = styled.span`
 export const InformationIcon = styled.img`
     width: 17px;
     height: 17px;
+    margin-right: 5px;
     object-fit: contain;
 `;
