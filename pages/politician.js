@@ -14,27 +14,35 @@ import {
     SinceDate
 } from '../styles/PoliticianPageStyles'
 import { emailIcon, formatDate } from '../general/Constants';
+import API from '../general/Api';
 
 const HeaderContent = props => (
     <HeaderContainer>
-        <Photo src={props.photo} />
+        <Photo src={props.photo ? props.photo : 'http://style.anu.edu.au/_anu/4/images/placeholders/person.png'} />
         <Informations>{props.name}</Informations>
-        <Informations>{props.party}-{props.state}</Informations>
+        <Informations>{props.party ? props.party : '(Partido não informado)'}-{props.state ? props.state : '(Estado não informado)'}</Informations>
         <EmailContainer>
             <EmailIcon src={emailIcon} />
-            <Email>{props.email}</Email>
+            <Email>{props.email ? props.email : 'Email não fornecido'}</Email>
         </EmailContainer>
         <ExpensesContainer>
-            <Expenses>R$ {props.expenses}</Expenses>
-            <SinceDate>gastos a partir de {formatDate(new Date(props.since))}</SinceDate>
+            <Expenses>{props.expenses ? `R$ ${props.expenses}` : 'Gastos não informados'}</Expenses>
+            <SinceDate>{props.since ? `gastos a partir de ${formatDate(new Date(props.since))}` : 'Data não informada' }</SinceDate>
         </ExpensesContainer>
     </HeaderContainer>
 );
 
 export default class Politician extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            ...this.props
+        }
+    }
+    
     render() {
         return(
-            <Layout headerContent={<HeaderContent {...this.props} />}>
+            <Layout headerContent={<HeaderContent {...this.state} />}>
                 
             </Layout>
         );
@@ -44,6 +52,16 @@ export default class Politician extends Component {
 
 Politician.getInitialProps = async context => {
     const { id } = context.query;
+
+    try{
+        const general = await API.get(`politicos/${id}`);
+        return({ ...convertData(general.data), status: general.status });
+
+    } catch (error) {
+        console.log(error.response.data.message)
+    }
+    
+
     const props = {
         name: 'Francisco Everardo Oliveira da Silva',
         email: 'tiririca@camara.com',
@@ -53,6 +71,16 @@ Politician.getInitialProps = async context => {
         expenses: '272.869,52',
         since: new Date()
     };
-
-    return props;
 }
+
+const convertData = data => ({
+    id: data._id,
+    name: data.nome,
+    email: data.email,
+    photo: data.urlFoto,
+    party: data.siglaPartido,
+    state: data.siglaUf,
+    function: data.cargo,
+    address: data.endereco,
+    phone: data.telefone
+})
