@@ -1,18 +1,18 @@
 import React, { PureComponent } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { HorizontalBar } from 'react-chartjs-2';
 import {
-    VerticalBarChartContainer,
+    HorizontalBarChartContainer,
     ChartTitle
 } from '../styles/ChartStyles';
 import { toMoney } from '../general/Constants';
 
-export default class VerticalBarChart extends PureComponent {
+export default class HorizontalBarChart  extends PureComponent {
 
     render() {
         return (
-            <VerticalBarChartContainer>
-                <ChartTitle>Gastos por mês no ano de 2018</ChartTitle>
-                <Bar
+            <HorizontalBarChartContainer>
+                <ChartTitle>Maiores beneficiários dos gastos de 2018</ChartTitle>
+                <HorizontalBar
                 data={this.props.data}
                 legend={{
                     position: 'right',
@@ -29,7 +29,7 @@ export default class VerticalBarChart extends PureComponent {
                 options={{
                     maintainAspectRatio: false,
                     scales: {
-                        yAxes: [{
+                        xAxes: [{
                             ticks: {
 
                                 callback: (item) => `${toMoney(item)},00`
@@ -38,12 +38,12 @@ export default class VerticalBarChart extends PureComponent {
                     },
                     tooltips: {
                         callbacks: {
-                            label: (item) => (toMoney(item.yLabel))
+                            label: (item) => (toMoney(item.xLabel))
                         }
                     }
                 }}
                 />
-            </VerticalBarChartContainer>
+            </HorizontalBarChartContainer>
         );
     }
 }

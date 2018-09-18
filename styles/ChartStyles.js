@@ -20,8 +20,17 @@ export const ChartTitle = styled.span`
 export const VerticalBarChartContainer = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: 1431px;
-    max-height: 676px;
+    max-width: 100%;
+    max-height: 500px;
+    align-items: center;
+    padding-bottom: 70px;
+`;
+
+export const HorizontalBarChartContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    max-height: 500px;
     align-items: center;
     padding-bottom: 70px;
 `;

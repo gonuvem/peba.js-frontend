@@ -65,3 +65,11 @@ export const SinceDate = styled.span`
     text-align: center;
     color: white;
 `;
+
+export const Container = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 55px 20% 0 20%;
+    align-items: center;
+`;

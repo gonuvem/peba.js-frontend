@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { 
     Layout, 
     PieChart,
-    VerticalBarChart
+    VerticalBarChart,
+    HorizontalBarChart
 } from '../components';
 import {
     HeaderContainer,
@@ -13,7 +14,8 @@ import {
     EmailIcon,
     ExpensesContainer,
     Expenses,
-    SinceDate
+    SinceDate,
+    Container
 } from '../styles/PoliticianPageStyles'
 import { emailIcon, formatDate } from '../general/Constants';
 import API from '../general/Api';
@@ -73,6 +75,21 @@ const dataVerticalBar = {
     ]
 }
 
+const dataHorizontallBar = {
+    labels: ['Posto Ipiranga', 'GoNuvem', 'HotCash', 'Meninos que fizeram o PEBA', 'Miss France'],
+    datasets: [
+        {
+            label: 'Valor em reais',
+            backgroundColor: '#97C7F6',
+            borderColor: '#4E98E0',
+            borderWidth: 1,
+            hoverBackgroundColor: '#97C7F6',
+            hoverBorderColor: '#4E98E0',
+            data: [6555.50, 5988.88, 8000.55, 8551.66, 560.99]
+        }
+    ]
+}
+
 export default class Politician extends Component {
     constructor(props){
         super(props);
@@ -84,8 +101,11 @@ export default class Politician extends Component {
     render() {
         return(
             <Layout headerContent={<HeaderContent {...this.state} />}>
-                <PieChart data={dataPie}/>
-                <VerticalBarChart data={dataVerticalBar} />
+                <Container>
+                    <PieChart data={dataPie}/>
+                    <VerticalBarChart data={dataVerticalBar} />
+                    <HorizontalBarChart data={dataHorizontallBar} />
+                </Container>
             </Layout>
         );
     }
