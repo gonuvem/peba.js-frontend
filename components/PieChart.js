@@ -9,7 +9,7 @@ export default class PieChart extends PureComponent {
     render() {
         return (
             <PieChartContainer>
-                <ChartTitle>Gastos de 2018 divididos por categoria</ChartTitle>
+                <ChartTitle>{this.props.title}</ChartTitle>
                 <Pie
                 data={this.props.data}
                 legend={{
@@ -24,6 +24,7 @@ export default class PieChart extends PureComponent {
                 width={200}
                 height={400}
                 options={{
+                    responsiveAnimationDuration: 1500,
                     maintainAspectRatio: false,
                 }}
                 />

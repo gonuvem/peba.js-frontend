@@ -13,6 +13,10 @@ export const previousIcon = require('../static/images/Previous.svg');
 export const informationIcon = require('../static/images/information-button.svg');
 export const map = require('../static/images/Brazil_Map.svg');
 export const emailIcon = require('../static/images/Email_Icon.svg');
+export const greenChair = require('../static/images/chair_green.svg');
+export const yellowChair = require('../static/images/chair_yellow.svg');
+export const redChair = require('../static/images/chair_red.svg');
+
 
 //header links
 export const headerLinks = [

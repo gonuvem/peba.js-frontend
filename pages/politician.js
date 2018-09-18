@@ -3,7 +3,8 @@ import {
     Layout, 
     PieChart,
     VerticalBarChart,
-    HorizontalBarChart
+    HorizontalBarChart,
+    ChairChart
 } from '../components';
 import {
     HeaderContainer,
@@ -15,7 +16,8 @@ import {
     ExpensesContainer,
     Expenses,
     SinceDate,
-    Container
+    Container,
+    ChartsLine
 } from '../styles/PoliticianPageStyles'
 import { emailIcon, formatDate } from '../general/Constants';
 import API from '../general/Api';
@@ -102,9 +104,18 @@ export default class Politician extends Component {
         return(
             <Layout headerContent={<HeaderContent {...this.state} />}>
                 <Container>
-                    <PieChart data={dataPie}/>
-                    <VerticalBarChart data={dataVerticalBar} />
-                    <HorizontalBarChart data={dataHorizontallBar} />
+                    <VerticalBarChart title={'Gastos por mês no ano de 2018'} data={dataVerticalBar} />
+                    <ChartsLine>
+                        <PieChart title={'Gastos de 2018 divididos por categoria'} data={dataPie}/>
+                        <ChairChart
+                        presence={250}
+                        justifiedAbsence={100}
+                        unjustifiedAbsence={250}
+                        total={600}
+                        title={'Presenças nas sessões no ano de 2018'} 
+                        />
+                    </ChartsLine>
+                    <HorizontalBarChart title={'Maiores beneficiários dos gastos de 2018'} data={dataHorizontallBar} />
                 </Container>
             </Layout>
         );

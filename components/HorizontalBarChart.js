@@ -11,7 +11,7 @@ export default class HorizontalBarChart  extends PureComponent {
     render() {
         return (
             <HorizontalBarChartContainer>
-                <ChartTitle>Maiores beneficiários dos gastos de 2018</ChartTitle>
+                <ChartTitle>{this.props.title}</ChartTitle>
                 <HorizontalBar
                 data={this.props.data}
                 legend={{
@@ -24,8 +24,6 @@ export default class HorizontalBarChart  extends PureComponent {
                         padding: 21,
                     }
                 }}
-                width={1431}
-                height={676}
                 options={{
                     maintainAspectRatio: false,
                     scales: {
@@ -40,7 +38,7 @@ export default class HorizontalBarChart  extends PureComponent {
                         callbacks: {
                             label: (item) => (toMoney(item.xLabel))
                         }
-                    }
+                    },
                 }}
                 />
             </HorizontalBarChartContainer>

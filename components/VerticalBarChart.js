@@ -11,7 +11,7 @@ export default class VerticalBarChart extends PureComponent {
     render() {
         return (
             <VerticalBarChartContainer>
-                <ChartTitle>Gastos por mês no ano de 2018</ChartTitle>
+                <ChartTitle>{this.props.title}</ChartTitle>
                 <Bar
                 data={this.props.data}
                 legend={{
