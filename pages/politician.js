@@ -117,7 +117,7 @@ export default class Politician extends Component {
                         />
                     </ChartsLine>
                     <HorizontalBarChart title={'Maiores beneficiários dos gastos de 2018'} data={dataHorizontallBar} />
-                    <ExpensesTable title={'Classificação das despesas'} />
+                    <ExpensesTable id={this.props.politicianId} title={'Classificação das despesas'} />
                 </Container>
             </Layout>
         );
@@ -130,22 +130,15 @@ Politician.getInitialProps = async context => {
 
     try{
         const general = await API.get(`politicos/${id}`);
-        return({ ...convertData(general.data), status: general.status });
+        return({
+            politicianId: id,
+            ...convertData(general.data),
+            status: general.status
+        });
 
     } catch (error) {
         console.log(error.response.data.message)
     }
-    
-
-    const props = {
-        name: 'Francisco Everardo Oliveira da Silva',
-        email: 'tiririca@camara.com',
-        photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Tiririca_na_camara.jpg/200px-Tiririca_na_camara.jpg',
-        party: 'PQP',
-        state: 'SP',
-        expenses: '272.869,52',
-        since: new Date()
-    };
 }
 
 const convertData = data => ({

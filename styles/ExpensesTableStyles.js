@@ -40,10 +40,11 @@ export const Data = styled.span`
     display: flex;
     flex: 1;
     justify-content: center;
+    text-align: center;
 `;
 
 export const Provider = styled.td`
-    width: 60%;
+    width: 50%;
     padding-left: 30px;
 `;
 
@@ -52,7 +53,7 @@ export const Date = styled.td`
 `;
 
 export const Kind = styled.td`
-    width: 20%;
+    width: 30%;
 `;
 
 export const Value = styled.td`
