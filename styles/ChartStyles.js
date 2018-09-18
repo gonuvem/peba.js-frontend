@@ -33,6 +33,7 @@ export const HorizontalBarChartContainer = styled.div`
     height: 500px;
     align-items: center;
     padding-bottom: 70px;
+    margin: 45px 0;
 `;
 
 export const ChairChartContainer = styled.div`

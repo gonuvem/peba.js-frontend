@@ -4,7 +4,8 @@ import {
     PieChart,
     VerticalBarChart,
     HorizontalBarChart,
-    ChairChart
+    ChairChart,
+    ExpensesTable
 } from '../components';
 import {
     HeaderContainer,
@@ -116,6 +117,7 @@ export default class Politician extends Component {
                         />
                     </ChartsLine>
                     <HorizontalBarChart title={'Maiores beneficiários dos gastos de 2018'} data={dataHorizontallBar} />
+                    <ExpensesTable title={'Classificação das despesas'} />
                 </Container>
             </Layout>
         );

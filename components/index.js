@@ -9,6 +9,7 @@ import PieChart from './PieChart';
 import VerticalBarChart from './VerticalBarChart';
 import HorizontalBarChart from './HorizontalBarChart';
 import ChairChart from './ChairChart';
+import ExpensesTable from './ExpensesTable';
 
 export {
     Header,
@@ -21,5 +22,6 @@ export {
     PieChart,
     VerticalBarChart,
     HorizontalBarChart,
-    ChairChart
+    ChairChart,
+    ExpensesTable
 };
