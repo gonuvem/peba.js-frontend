@@ -8,6 +8,7 @@ import PoliticianCard from './PoliticianCard';
 import PieChart from './PieChart';
 import VerticalBarChart from './VerticalBarChart';
 import HorizontalBarChart from './HorizontalBarChart';
+import ChairChart from './ChairChart';
 
 export {
     Header,
@@ -19,5 +20,6 @@ export {
     PoliticianCard,
     PieChart,
     VerticalBarChart,
-    HorizontalBarChart
+    HorizontalBarChart,
+    ChairChart
 };

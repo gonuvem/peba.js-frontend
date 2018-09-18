@@ -67,9 +67,16 @@ export const SinceDate = styled.span`
 `;
 
 export const Container = styled.div`
+    background-color: #F2F2F2;
     display: flex;
     flex: 1;
     flex-direction: column;
     padding: 55px 20% 0 20%;
     align-items: center;
+`;
+
+export const ChartsLine = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 `;
