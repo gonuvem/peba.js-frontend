@@ -30,32 +30,37 @@ export default class Search extends Component {
     }
 
     nextPage = async () => {
-        await this.setState({currentPage: this.state.currentPage + 1});
+        await this.setState({
+            currentPage: this.state.currentPage + 1,
+            data: { ...this.state.data, page: this.state.currentPage + 1}
+        });
         this.requestNewPage(this.state.currentPage);
     }
 
     previousPage = async () => {
-        await this.setState({currentPage: this.state.currentPage - 1});
+        await this.setState({
+            currentPage: this.state.currentPage - 1,
+            data: { ...this.state.data, page: this.state.currentPage - 1}
+        });
         this.requestNewPage(this.state.currentPage);
     }
 
     requestNewPage = async page => {
-
-        console.log('Query', `${this.state.query}page=${page}`);
-        console.log('Method', this.state.method);
-        console.log('Data', this.state.data)
         API({ method: this.state.method, url: `${this.state.query}page=${page}`,  ...this.state.data })
         .then((response) => {
             //console.log('Pagination Response', response.data);
             this.setState({ ...response.data })
         })
         .catch((error) => {
-            console.log('Pagination Error', error.response.data.message);
+            console.log('Pagination Error', error.response);
         })
     }
 
     pagePressed = async page => {
-        await this.setState({currentPage: page});
+        await this.setState({
+            currentPage: page,
+            data: { ...this.state.data, page }
+        });
         this.requestNewPage(this.state.currentPage);
     }
 
@@ -116,15 +121,14 @@ Search.getInitialProps = async context => {
     } else {
         query = 'politicos?';
         data = {
-            terms: terms.split(',')
+            terms: terms.split(','),
+            page: 1
         };
         method='POST'
     }
 
-    console.log('Query params', method, `${query}page=0`, data)
-
     try {
-        const response = await API({ method, url: `${query}page=0`, data });
+        const response = await API({ method, url: `${query}`, data });
         return { reserachText: text, ...response.data, status: response.status, state, method, query, data };
     } catch (error) {
         console.log(error.response.data.message)
