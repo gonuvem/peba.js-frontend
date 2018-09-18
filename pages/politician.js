@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { 
     Layout, 
+    PieChart,
+    VerticalBarChart
 } from '../components';
 import {
     HeaderContainer,
@@ -32,6 +34,45 @@ const HeaderContent = props => (
     </HeaderContainer>
 );
 
+const dataPie = {
+    datasets: [{
+        data: [10,20,30,15],
+        backgroundColor: [
+            '#95D6FF',
+            '#FA9CE4',
+            '#FFC260',
+            '#91FCDF'
+            ],
+            hoverBackgroundColor: [
+            '#95D6FF',
+            '#FA9CE4',
+            '#FFC260',
+            '#91FCDF'
+            ]
+    }],
+    labels: [
+        'Gasolina',
+        'Passagens',
+        'Alimentação',
+        'Auxílio Paletó'
+    ]
+}
+
+const dataVerticalBar = {
+    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto'],
+    datasets: [
+        {
+            label: 'Valor em reais',
+            backgroundColor: '#97C7F6',
+            borderColor: '#4E98E0',
+            borderWidth: 1,
+            hoverBackgroundColor: '#97C7F6',
+            hoverBorderColor: '#4E98E0',
+            data: [6555.50, 5988.88, 8000.55, 8551.66, 560.99, 5555.88, 4660.99, 1000.55]
+        }
+    ]
+}
+
 export default class Politician extends Component {
     constructor(props){
         super(props);
@@ -43,7 +84,8 @@ export default class Politician extends Component {
     render() {
         return(
             <Layout headerContent={<HeaderContent {...this.state} />}>
-                
+                <PieChart data={dataPie}/>
+                <VerticalBarChart data={dataVerticalBar} />
             </Layout>
         );
     }

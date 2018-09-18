@@ -5,6 +5,8 @@ import Footer from './Footer';
 import Layout from './Layout';
 import Paginator from './Paginator';
 import PoliticianCard from './PoliticianCard';
+import PieChart from './PieChart';
+import VerticalBarChart from './VerticalBarChart';
 
 export {
     Header,
@@ -13,5 +15,7 @@ export {
     Footer,
     Layout,
     Paginator,
-    PoliticianCard
+    PoliticianCard,
+    PieChart,
+    VerticalBarChart
 };
