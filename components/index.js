@@ -7,6 +7,7 @@ import Paginator from './Paginator';
 import PoliticianCard from './PoliticianCard';
 import PieChart from './PieChart';
 import VerticalBarChart from './VerticalBarChart';
+import HorizontalBarChart from './HorizontalBarChart';
 
 export {
     Header,
@@ -17,5 +18,6 @@ export {
     Paginator,
     PoliticianCard,
     PieChart,
-    VerticalBarChart
+    VerticalBarChart,
+    HorizontalBarChart
 };

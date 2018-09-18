@@ -80,6 +80,6 @@ const formatNumber = number => (
     number < 10 ? `0${number}` : `${number}`
 );
 
-export const convertMoney = money => (
-    `${money.toLocaleString('pt-BR', {maximumFractionDigits:2})}`
+export const toMoney = money => (
+    `R$ ${money.toLocaleString('pt-BR', {maximumFractionDigits:2})}`
 )
