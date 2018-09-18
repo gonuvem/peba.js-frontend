@@ -79,3 +79,7 @@ export const formatDate = date => (
 const formatNumber = number => (
     number < 10 ? `0${number}` : `${number}`
 );
+
+export const convertMoney = money => (
+    `${money.toLocaleString('pt-BR', {maximumFractionDigits:2})}`
+)
