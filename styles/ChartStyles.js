@@ -65,6 +65,7 @@ export const Dot = styled.div`
     height: 10px;
     border-radius: 5px;
     margin-right: 6px;
+    background-color: ${props => props.backgroundColor};
 `;
 
 export const LegendContainer = styled.div`

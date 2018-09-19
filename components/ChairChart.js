@@ -88,7 +88,7 @@ export default class ChairChart extends PureComponent {
                     {
                         this.legend.map((element) => (
                             <LegendLine>
-                                <Dot style={{ backgroundColor: element.color}} />
+                                <Dot backgroundColor={element.color} />
                                 <LegendName>
                                     {element.name} <LegendValue>{element.value} sessões</LegendValue>
                                 </LegendName>

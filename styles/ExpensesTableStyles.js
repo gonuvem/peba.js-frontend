@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 1088px;
+    width: 1200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,16 +44,16 @@ export const Data = styled.span`
 `;
 
 export const Provider = styled.td`
-    width: 50%;
+    width: 45%;
     padding-left: 30px;
 `;
 
-export const Date = styled.td`
+export const DateString = styled.td`
     width: 10%;
 `;
 
 export const Kind = styled.td`
-    width: 30%;
+    width: 35%;
 `;
 
 export const Value = styled.td`

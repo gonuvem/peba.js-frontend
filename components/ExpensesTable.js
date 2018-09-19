@@ -9,7 +9,7 @@ import {
     TableHeader,
     Data,
     Provider,
-    Date,
+    DateString,
     Kind,
     Value,
     TableWrapper
@@ -56,10 +56,10 @@ export default class ExpensesTable extends PureComponent {
                         </thead>
                         <tbody>
                             {
-                                this.state.expenses.map(element => (
-                                    <TableLine>
-                                        <Provider><Data style={{ justifyContent: 'flex-start' }}>{element.provider.name}</Data></Provider>
-                                        <Date><Data>{(element.date)}</Data></Date>
+                                this.state.expenses.map((element, id) => (
+                                    <TableLine key={id}>
+                                        <Provider><Data style={{ justifyContent: 'flex-start', textAlign: 'left' }}>{element.provider.name}</Data></Provider>
+                                        <DateString><Data>{formatDate(new Date(element.date))}</Data></DateString>
                                         <Kind><Data>{element.type}</Data></Kind>
                                         <Value><Data>{toMoney(parseFloat(element.value))}</Data></Value>
                                     </TableLine>
