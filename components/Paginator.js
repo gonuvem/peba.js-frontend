@@ -25,7 +25,7 @@ export default class Paginator extends Component {
                         Array(this.props.numberOfPages).fill(0).map((element, index) => (
                             <Page 
                             key={index}
-                            onClick={() => this.props.onPagePress(index)} 
+                            onClick={() => this.props.onPagePress(index)}
                             backgroundColor={index === this.props.currentPage ? '#FFC800' : 'white'}
                             fontColor={index === this.props.currentPage ? 'white' : '#FFC800'}
                             >

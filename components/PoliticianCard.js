@@ -13,7 +13,7 @@ import {
     InformationIcon
 } from '../styles/PoliticianCardStyles';
 
-import { informationIcon } from '../general/Constants';
+import { informationIcon, toMoney } from '../general/Constants';
 
 export default class PoliticianCard extends Component {
     constructor(props) {
@@ -35,7 +35,7 @@ export default class PoliticianCard extends Component {
                         <DetailText>Cargo: {this.props.function}</DetailText>
                         <DetailText>Partido: {this.props.party}</DetailText>
                         <DetailText>Estado: {this.props.state}</DetailText>
-                        <ExpensesText>Despesas: R$ {this.props.expenses}</ExpensesText>
+                        <ExpensesText>Despesas: {toMoney(this.props.expenses)}</ExpensesText>
                     </DetailsContainer>
                 </Data>
                 <ButtonContainer onClick={this.handleClick}>
