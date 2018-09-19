@@ -40,7 +40,7 @@ export default class ExpensesTable extends PureComponent {
     }
 
     render() {
-        console.log('table', this.props)
+        //console.log('table', this.props)
         return(
             <Container>
                 <ChartTitle>{this.props.title}</ChartTitle>
