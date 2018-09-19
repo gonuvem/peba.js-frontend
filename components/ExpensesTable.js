@@ -27,11 +27,14 @@ export default class ExpensesTable extends PureComponent {
             pages: 1,
             currentPage: 0
         }
+
+        this.pageChange = this.pageChange.bind(this);
     }
 
-    async componentDidMount() {
+    requestPage = async page => {
+        console.log('PAge sent', page)
         try{
-            const expenses = await API.get(`expenses?politicianId=${this.props.id}&year=2018&perPage=20&page=0`);
+            const expenses = await API.get(`expenses?politicianId=${this.props.id}&year=2018&perPage=20&page=${page}`);
             await this.setState({ ...expenses.data });
     
         } catch (error) {
@@ -39,8 +42,15 @@ export default class ExpensesTable extends PureComponent {
         }
     }
 
+    async componentDidMount() {
+        this.requestPage(this.state.currentPage);
+    }
+
+    pageChange = currentPage => {
+        this.setState({ currentPage: currentPage.selected }, () =>{ this.requestPage(this.state.currentPage) })
+    }
+
     render() {
-        //console.log('table', this.props)
         return(
             <Container>
                 <ChartTitle>{this.props.title}</ChartTitle>
@@ -67,13 +77,9 @@ export default class ExpensesTable extends PureComponent {
                             }
                         </tbody>
                     </Table>
-                    <Paginator 
-                    style={{marginTop: 20, marginBottom: 20, /*width: 280*/}}
-                    numberOfPages={this.state.pages} 
-                    currentPage={this.state.currentPage} 
-                    onPagePress={() => {}}
-                    onNextPress={() => {}}
-                    onPreviousPress={() => {}}
+                    <Paginator
+                    onPageChange={this.pageChange} 
+                    pageCount={this.state.pages}
                     />
                 </TableWrapper>
             </Container>

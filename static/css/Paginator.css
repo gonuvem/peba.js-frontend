@@ -9,3 +9,59 @@
     width: 10px;
     fill: #4B4B4B;
 }
+
+.paginator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 56px auto;
+    max-width: 600px;
+    padding: 0;
+}
+
+.paginator-page {
+    width: 33px;
+    height: 33px;
+    border-radius: 8px;
+    font-size: 27px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin: 0 10px;
+    color: #FFC800;
+    background-color: white;
+    cursor: pointer;
+}
+
+.paginator-active-page {
+    width: 33px;
+    height: 33px;
+    border-radius: 8px;
+    font-size: 27px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin: 0 10px;
+    color: white;
+    background-color: #FFC800;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+.paginator-link {
+    outline: none
+}
+
+.paginator-ellipsis {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFC800;
+    height: 30px
+}
