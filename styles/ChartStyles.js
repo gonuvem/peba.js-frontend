@@ -9,6 +9,47 @@ export const PieChartContainer = styled.div`
     padding: 15px;
 `;
 
+export const PieContent = styled.div`
+    display: flex;
+`;
+
+export const PieContainer = styled.div`
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+`;
+
+export const PieLegendContainer = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+`;
+
+export const PieLegendLine = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px 0;
+`;
+
+export const LegendBox = styled.div`
+    background-color: ${props => props.color};
+    width: 30px;
+    height: 10px;
+    margin-right: 15px;
+`;
+
+export const PieLegendText = styled.span`
+    font-size: 17;
+    max-width: 90%;
+    color: '#747474';
+    font-family: 'Roboto';
+    padding: 21;
+`;
+
 export const ChartTitle = styled.span`
     font-size: 21px;
     color: #747474;
