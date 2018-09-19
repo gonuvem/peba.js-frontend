@@ -1,43 +1,29 @@
 import React, { Component } from 'react';
 import ReactSVG from 'react-svg';
-import  {
-    Container,
-    ControllerIconContainer,
-    Page,
-    Selected,
-    Unselected,
-} from '../styles/PaginatorStyles';
 import {
     nextIcon,
     previousIcon,
 } from '../general/Constants';
 import '../static/css/Paginator.css';
+import ReactPaginate from 'react-paginate';
 
 export default class Paginator extends Component {
 
     render() {
         return(
-            <Container style={this.props.style}>
-                <ControllerIconContainer onClick={() => this.props.currentPage !==0 ? this.props.onPreviousPress() : undefined}>
-                    <ReactSVG src={previousIcon} svgClassName={'disabledController'} />
-                </ControllerIconContainer>
-                    {
-                        Array(this.props.numberOfPages).fill(0).map((element, index) => (
-                            <Page 
-                            key={index}
-                            onClick={() => this.props.onPagePress(index)}
-                            backgroundColor={index === this.props.currentPage ? '#FFC800' : 'white'}
-                            fontColor={index === this.props.currentPage ? 'white' : '#FFC800'}
-                            >
-                                {index + 1}
-                            </Page>
-                        ))
-                    }                    
-                <ControllerIconContainer onClick={() => this.props.currentPage !== this.props.numberOfPages - 1 ? this.props.onNextPress() : undefined}>
-                    <ReactSVG src={nextIcon} svgClassName='enabledController' />
-                </ControllerIconContainer>
-                
-            </Container>
+           <ReactPaginate
+           pageCount={this.props.pageCount}
+           pageRangeDisplayed={5}
+           marginPagesDisplayed={2}
+           previousLabel={<ReactSVG src={previousIcon} svgClassName='enabledController' />}
+           nextLabel={<ReactSVG src={nextIcon} svgClassName='enabledController' />}
+           containerClassName='paginator-container'
+           pageClassName='paginator-page'
+           activeClassName='paginator-active-page'
+           pageLinkClassName='paginator-link'
+           breakClassName='paginator-ellipsis'
+           onPageChange={this.props.onPageChange}
+           />
         );
     }
 }
