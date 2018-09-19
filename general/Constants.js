@@ -1,3 +1,5 @@
+const randomColor = require('randomcolor');
+
 //images
 export const pebaLogoNavbar = require('../static/images/peba_logo_navbar.png');
 export const header_bg = require('../static/images/header_bg.png');
@@ -73,6 +75,7 @@ export const states = [
     {fullName: 'Paraíba', abbreviation: 'PB'},
 ];
 
+const months =  ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
 //functions
 
@@ -87,3 +90,59 @@ const formatNumber = number => (
 export const toMoney = money => (
     `R$ ${parseFloat(money).toLocaleString('pt-BR', {maximumFractionDigits: 2, minimumFractionDigits: 2})}`
 );
+
+export const convertExpensesByMonth = data => ({
+    labels: data.map(element => months[element.month - 1]),
+    datasets: [
+        {
+            label: 'Valor em reais',
+            backgroundColor: '#97C7F6',
+            borderColor: '#4E98E0',
+            borderWidth: 1,
+            hoverBackgroundColor: '#97C7F6',
+            hoverBorderColor: '#4E98E0',
+            data: data.map(element => element.total)
+        }
+    ]
+});
+
+export const convertGeneralData = data => ({
+    id: data._id,
+    name: data.nome,
+    email: data.email,
+    photo: data.urlFoto,
+    party: data.siglaPartido,
+    state: data.siglaUf,
+    function: data.cargo,
+    address: data.endereco,
+    phone: data.telefone
+});
+
+export const convertExpensesByTopNProviders = data => ({
+    labels: data.map(element => element.provider.name),
+    datasets: [
+        {
+            label: 'Valor em reais',
+            backgroundColor: '#97C7F6',
+            borderColor: '#4E98E0',
+            borderWidth: 1,
+            hoverBackgroundColor: '#97C7F6',
+            hoverBorderColor: '#4E98E0',
+            data: data.map(element => element.total)
+        }
+    ]
+});
+
+export const convertExpensesByType = data => {
+    const colors = data.map(() => randomColor());
+    return(
+        {
+            datasets: [{
+                data: data.map(element => element.total),
+                backgroundColor: colors,
+                hoverBackgroundColor: colors
+            }],
+            labels: data.map(element => element.type)
+        }
+    );
+};

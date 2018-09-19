@@ -20,7 +20,14 @@ import {
     Container,
     ChartsLine
 } from '../styles/PoliticianPageStyles'
-import { emailIcon, formatDate } from '../general/Constants';
+import { 
+    emailIcon, 
+    formatDate, 
+    convertExpensesByMonth, 
+    convertGeneralData,
+    convertExpensesByTopNProviders,
+    convertExpensesByType
+} from '../general/Constants';
 import API from '../general/Api';
 
 const HeaderContent = props => (
@@ -63,36 +70,6 @@ const dataPie = {
     ]
 }
 
-const dataVerticalBar = {
-    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto'],
-    datasets: [
-        {
-            label: 'Valor em reais',
-            backgroundColor: '#97C7F6',
-            borderColor: '#4E98E0',
-            borderWidth: 1,
-            hoverBackgroundColor: '#97C7F6',
-            hoverBorderColor: '#4E98E0',
-            data: [6555.50, 5988.88, 8000.55, 8551.66, 560.99, 5555.88, 4660.99, 1000.55]
-        }
-    ]
-}
-
-const dataHorizontallBar = {
-    labels: ['Posto Ipiranga', 'GoNuvem', 'HotCash', 'Meninos que fizeram o PEBA', 'Miss France'],
-    datasets: [
-        {
-            label: 'Valor em reais',
-            backgroundColor: '#97C7F6',
-            borderColor: '#4E98E0',
-            borderWidth: 1,
-            hoverBackgroundColor: '#97C7F6',
-            hoverBorderColor: '#4E98E0',
-            data: [6555.50, 5988.88, 8000.55, 8551.66, 560.99]
-        }
-    ]
-}
-
 export default class Politician extends Component {
     constructor(props){
         super(props);
@@ -105,9 +82,9 @@ export default class Politician extends Component {
         return(
             <Layout headerContent={<HeaderContent {...this.state} />}>
                 <Container>
-                    <VerticalBarChart title={'Gastos por mês no ano de 2018'} data={dataVerticalBar} />
+                    <VerticalBarChart title={'Gastos por mês no ano de 2018'} data={this.state.expensesByMonthData} />
                     <ChartsLine>
-                        <PieChart title={'Gastos de 2018 divididos por categoria'} data={dataPie}/>
+                        <PieChart title={'Gastos de 2018 divididos por categoria'} data={this.state.expensesByType}/>
                         <ChairChart
                         presence={250}
                         justifiedAbsence={100}
@@ -116,7 +93,7 @@ export default class Politician extends Component {
                         title={'Presenças nas sessões no ano de 2018'} 
                         />
                     </ChartsLine>
-                    <HorizontalBarChart title={'Maiores beneficiários dos gastos de 2018'} data={dataHorizontallBar} />
+                    <HorizontalBarChart title={'Maiores beneficiários dos gastos de 2018'} data={this.state.expensesByTopNProviders} />
                     <ExpensesTable id={this.props.politicianId} title={'Classificação das despesas'} />
                 </Container>
             </Layout>
@@ -130,25 +107,19 @@ Politician.getInitialProps = async context => {
 
     try{
         const general = await API.get(`politicos/${id}`);
+        console.log('Frequency', general.data)
+        const expenses = await API.get(`expenses/charts?politicianId=${id}`);
+        console.log('Expenses', convertExpensesByMonth(expenses.data.expensesByMonth).datasets)
         return({
             politicianId: id,
-            ...convertData(general.data),
-            status: general.status
+            ...convertGeneralData(general.data),
+            status: general.status,
+            expensesByMonthData: convertExpensesByMonth(expenses.data.expensesByMonth),
+            expensesByTopNProviders: convertExpensesByTopNProviders(expenses.data.expensesByTopNProviders),
+            expensesByType: convertExpensesByType(expenses.data.expensesByType),
         });
 
     } catch (error) {
         console.log(error.response.data.message)
     }
 }
-
-const convertData = data => ({
-    id: data._id,
-    name: data.nome,
-    email: data.email,
-    photo: data.urlFoto,
-    party: data.siglaPartido,
-    state: data.siglaUf,
-    function: data.cargo,
-    address: data.endereco,
-    phone: data.telefone
-})
