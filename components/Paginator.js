@@ -23,6 +23,7 @@ export default class Paginator extends Component {
            pageLinkClassName='paginator-link'
            breakClassName='paginator-ellipsis'
            onPageChange={this.props.onPageChange}
+           forcePage={this.props.forcePage}
            />
         );
     }

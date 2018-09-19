@@ -74,20 +74,20 @@ export default class ChairChart extends PureComponent {
             <ChairChartContainer>
                 <ChartTitle>{this.props.title}</ChartTitle>
                 <ChairWrapper>
-                    {Array(this.presence).fill(0).map(() => (
-                        <ChairIcon src={greenChair} />
+                    {Array(this.presence).fill(0).map((element, index) => (
+                        <ChairIcon key={index} src={greenChair} />
                     ))}
-                    {Array(this.justifiedAbsence).fill(0).map(() => (
-                        <ChairIcon src={yellowChair} />
+                    {Array(this.justifiedAbsence).fill(0).map((element, index) => (
+                        <ChairIcon key={index} src={yellowChair} />
                     ))}
-                    {Array(this.unjustifiedAbsence).fill(0).map(() => (
-                        <ChairIcon src={redChair} />
+                    {Array(this.unjustifiedAbsence).fill(0).map((element, index) => (
+                        <ChairIcon key={index} src={redChair} />
                     ))}
                 </ChairWrapper>
                 <LegendContainer>
                     {
-                        this.legend.map((element) => (
-                            <LegendLine>
+                        this.legend.map((element, index) => (
+                            <LegendLine key={index}>
                                 <Dot backgroundColor={element.color} />
                                 <LegendName>
                                     {element.name} <LegendValue>{element.value} sessões</LegendValue>
@@ -98,8 +98,8 @@ export default class ChairChart extends PureComponent {
                 </LegendContainer>
                 <ChairLegendWrapper>
                     {
-                        this.chairLegend.map((element) => (
-                            <ChairLegendLine>
+                        this.chairLegend.map((element, index) => (
+                            <ChairLegendLine key={index}>
                                 <ChairIco src={element.chair} />
                                 <ChairLegendText>{element.title}</ChairLegendText>
                             </ChairLegendLine>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Router from 'next/router';
 import { 
     Layout, 
     SearchBar, 
@@ -23,49 +22,21 @@ export default class Search extends Component {
             ...this.props
         };
 
-        this.nextPage = this.nextPage.bind(this);
-        this.previousPage = this.previousPage.bind(this);
         this.requestNewPage = this.requestNewPage.bind(this);
-        this.pagePressed = this.pagePressed.bind(this);
-    }
-
-    nextPage = async () => {
-        await this.setState({
-            currentPage: this.state.currentPage + 1,
-            data: { ...this.state.data, page: this.state.currentPage + 1}
-        });
-        this.requestNewPage(this.state.currentPage);
-    }
-
-    previousPage = async () => {
-        await this.setState({
-            currentPage: this.state.currentPage - 1,
-            data: { ...this.state.data, page: this.state.currentPage - 1}
-        });
-        this.requestNewPage(this.state.currentPage);
     }
 
     requestNewPage = async page => {
-        API({ method: this.state.method, url: `${this.state.query}page=${page}`,  ...this.state.data })
+        API({ method: this.state.method, url: `${this.state.query}page=${page.selected}`,  ...this.state.data })
         .then((response) => {
-            //console.log('Pagination Response', response.data);
-            this.setState({ ...response.data })
+            this.setState({ ...response.data, currentPage: page.selected })
         })
         .catch((error) => {
             console.log('Pagination Error', error.response);
         })
     }
 
-    pagePressed = async page => {
-        await this.setState({
-            currentPage: page,
-            data: { ...this.state.data, page }
-        });
-        this.requestNewPage(this.state.currentPage);
-    }
 
     render() {
-        //console.log("Searchprops", this.state)
         return (
             this.state.status === 201 ?
                 <Layout headerContent={<SearchBar/>}>
@@ -80,11 +51,9 @@ export default class Search extends Component {
                             </EvidenceText>
                         </ResultText>
                         <Paginator 
-                        numberOfPages={this.state.pages} 
-                        currentPage={this.state.currentPage} 
-                        onPagePress={this.pagePressed}
-                        onNextPress={this.nextPage}
-                        onPreviousPress={this.previousPage}
+                        pageCount={this.state.pages} 
+                        onPageChange={this.requestNewPage} 
+                        forcePage={this.state.currentPage}
                         />
                         {this.state.politicians.map((element) => (
                             <PoliticianCard 
@@ -100,11 +69,9 @@ export default class Search extends Component {
                         ))}
                         <Paginator
                         style={{marginTop: 16}}
-                        numberOfPages={this.state.pages} 
-                        currentPage={this.state.currentPage} 
-                        onPagePress={this.pagePressed}
-                        onNextPress={this.nextPage}
-                        onPreviousPress={this.previousPage}
+                        pageCount={this.state.pages} 
+                        onPageChange={this.requestNewPage}
+                        forcePage={this.state.currentPage}
                         />
                     </Container>
                 </Layout>
