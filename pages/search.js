@@ -25,6 +25,29 @@ export default class Search extends Component {
         this.requestNewPage = this.requestNewPage.bind(this);
     }
 
+    static async getInitialProps(context) {
+        const { text, state, terms } = context.query;
+        let query, data = {}, method='GET';
+        if(terms === undefined) {
+            query = `politicos?uf=${state}&`;
+        } else {
+            query = 'politicos?';
+            data = {
+                terms: terms.split(','),
+                page: 1
+            };
+            method='POST'
+        }
+
+        try {
+            const response = await API({ method, url: `${query}page=0`, data });
+            return { reserachText: text, ...response.data, status: response.status, state, method, query, data };
+        } catch (error) {
+            console.log('error', error)
+            return { reserachText: text, ...error, state, method, query, data };
+        }
+    }
+
     requestNewPage = async page => {
         API({ method: this.state.method, url: `${this.state.query}page=${page.selected}`,  ...this.state.data })
         .then((response) => {
@@ -80,7 +103,7 @@ export default class Search extends Component {
     }
 }
 
-Search.getInitialProps = async context => {
+/*Search.getInitialProps = async context => {
     const { text, state, terms } = context.query;
     let query, data = {}, method='GET';
     if(terms === undefined) {
@@ -98,7 +121,7 @@ Search.getInitialProps = async context => {
         const response = await API({ method, url: `${query}`, data });
         return { reserachText: text, ...response.data, status: response.status, state, method, query, data };
     } catch (error) {
-        console.log(error.response.data.message)
+        console.log(error)
         return { reserachText: text, ...error.response.status, state, method, query, data };
     }
-}
+}*/
