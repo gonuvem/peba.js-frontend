@@ -142,7 +142,7 @@ export const convertExpensesByType = data => {
                 backgroundColor: colors,
                 hoverBackgroundColor: colors
             }],
-            labels: data.map(element => element.type)
+            labels: data.map(element => element.type.toUpperCase())
         }
     );
 };

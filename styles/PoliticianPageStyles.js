@@ -77,7 +77,7 @@ export const Container = styled.div`
 
 export const ChartsLine = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     margin: 50px 0;
 `;
