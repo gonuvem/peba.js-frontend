@@ -46,30 +46,6 @@ const HeaderContent = props => (
     </HeaderContainer>
 );
 
-const dataPie = {
-    datasets: [{
-        data: [10,20,30,15],
-        backgroundColor: [
-            '#95D6FF',
-            '#FA9CE4',
-            '#FFC260',
-            '#91FCDF'
-            ],
-            hoverBackgroundColor: [
-            '#95D6FF',
-            '#FA9CE4',
-            '#FFC260',
-            '#91FCDF'
-            ]
-    }],
-    labels: [
-        'Gasolina',
-        'Passagens',
-        'Alimentação',
-        'Auxílio Paletó'
-    ]
-}
-
 export default class Politician extends Component {
     constructor(props){
         super(props);
@@ -83,8 +59,8 @@ export default class Politician extends Component {
             <Layout headerContent={<HeaderContent {...this.state} />}>
                 <Container>
                     <VerticalBarChart title={'Gastos por mês no ano de 2018'} data={this.state.expensesByMonthData} />
+                    <PieChart title={'Gastos de 2018 divididos por categoria'} data={this.state.expensesByType}/>
                     <ChartsLine>
-                        <PieChart title={'Gastos de 2018 divididos por categoria'} data={this.state.expensesByType}/>
                         <ChairChart
                         presence={250}
                         justifiedAbsence={100}

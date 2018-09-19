@@ -13,6 +13,7 @@ export default class PieChart extends PureComponent {
                 <Pie
                 data={this.props.data}
                 legend={{
+                    position: 'left',
                     fullWidth: false,
                     labels: {
                         fontSize: 17,

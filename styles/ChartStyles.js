@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const PieChartContainer = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: 425px;
-    max-height: 586px;
+    width: 100%;
+    height: 400px;
     align-items: center;
     padding: 15px;
 `;
