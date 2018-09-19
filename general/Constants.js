@@ -85,5 +85,5 @@ const formatNumber = number => (
 );
 
 export const toMoney = money => (
-    `R$ ${money.toLocaleString('pt-BR', {maximumFractionDigits:2})}`
-)
+    `R$ ${money.toLocaleString('pt-BR', {maximumFractionDigits: 2, minimumFractionDigits: 2})}`
+);
