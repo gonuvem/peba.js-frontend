@@ -26,15 +26,7 @@ export const Page = styled.div`
     align-items: center;
     justify-content: center;
     margin: 0 10px;
+    color: ${props => props.fontColor};
+    background-color: ${props => props.backgroundColor};
     cursor: pointer;
 `;
-
-export const Selected = {
-    backgroundColor: '#FFC800',
-    color: 'white'
-}
-
-export const Unselected = {
-    backgroundColor: 'white',
-    color: '#FFC800'
-}
