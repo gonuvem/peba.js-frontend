@@ -53,10 +53,10 @@ export const DateString = styled.td`
 `;
 
 export const Kind = styled.td`
-    width: 35%;
+    width: 30%;
 `;
 
 export const Value = styled.td`
-    width: 10%;
+    width: 15%;
     padding-right: 30px;
 `;
