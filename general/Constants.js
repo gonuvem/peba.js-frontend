@@ -39,8 +39,8 @@ export const headerLinks = [
     },
     {
         name: 'Dicionário',
-        href: '/index',
-        as: '/'
+        href: '/glossary',
+        as: '/glossary'
     },
 ];
 
@@ -76,6 +76,7 @@ export const states = [
 ];
 
 const months =  ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+export const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'W', 'Y', 'Z'];
 
 //functions
 
