@@ -51,3 +51,9 @@ export const HeaderContainer = styled.div`
     flex-direction: column;
     align-items: center;
 `;
+
+export const ErrorMessage = styled.div`
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+`;
