@@ -33,12 +33,12 @@ import API from '../general/Api';
 
 const HeaderContent = props => (
     <HeaderContainer>
-        <Photo src={props.photo ? props.photo : 'http://style.anu.edu.au/_anu/4/images/placeholders/person.png'} />
+        <Photo src={props.photo || 'http://style.anu.edu.au/_anu/4/images/placeholders/person.png'} />
         <Informations>{props.name}</Informations>
-        <Informations>{props.party ? props.party : '(Partido não informado)'}-{props.state ? props.state : '(Estado não informado)'}</Informations>
+        <Informations>{props.party || '(Partido não informado)'}-{props.state || '(Estado não informado)'}</Informations>
         <EmailContainer>
             <EmailIcon src={emailIcon} />
-            <Email>{props.email ? props.email : 'Email não fornecido'}</Email>
+            <Email>{props.email || 'Email não fornecido'}</Email>
         </EmailContainer>
         <ExpensesContainer>
             <Expenses>{props.expenses ? `${toMoney(props.expenses)}` : 'Gastos não informados'}</Expenses>
