@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin: 56px auto;
+    margin: 47px auto;
 `;
 
 export const ControllerIconContainer = styled.div`
