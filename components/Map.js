@@ -18,7 +18,14 @@ export default class Map extends PureComponent {
         const svgStates = element.getElementsByClassName('c');
         Array.from(svgStates).forEach((element, index) => {
             element.addEventListener('click', () => {
-                Router.push(`/search?text=${states[index]}`, `/search/${states[index]}`).then(() => window.scrollTo(0, 0));
+                Router.push({
+                    pathname: `/search/state`,
+                    query: {
+                        text: states[index].fullName,
+                        state: states[index].abbreviation
+                    },
+                    asPath: `/search/state/?text=${states[index].fullName}&state=${states[index].abbreviation}`
+                }).then(() => window.scrollTo(0, 0));
             })
         })
     }

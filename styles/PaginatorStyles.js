@@ -7,13 +7,6 @@ export const Container = styled.div`
     margin: 56px auto;
 `;
 
-export const ControllerIcon = styled.img`
-    width: 10px;
-    height: 10px;
-    object-fit: contain;
-    
-`;
-
 export const ControllerIconContainer = styled.div`
     width: 10px;
     height: 33px;
@@ -33,15 +26,7 @@ export const Page = styled.div`
     align-items: center;
     justify-content: center;
     margin: 0 10px;
+    color: ${props => props.fontColor};
+    background-color: ${props => props.backgroundColor};
     cursor: pointer;
 `;
-
-export const Selected = {
-    backgroundColor: '#FFC800',
-    color: 'white'
-}
-
-export const Unselected = {
-    backgroundColor: 'white',
-    color: '#FFC800'
-}
