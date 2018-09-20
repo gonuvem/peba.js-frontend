@@ -26,7 +26,8 @@ import {
     convertExpensesByMonth, 
     convertGeneralData,
     convertExpensesByTopNProviders,
-    convertExpensesByType
+    convertExpensesByType,
+    toMoney
 } from '../general/Constants';
 import API from '../general/Api';
 
@@ -40,7 +41,7 @@ const HeaderContent = props => (
             <Email>{props.email ? props.email : 'Email não fornecido'}</Email>
         </EmailContainer>
         <ExpensesContainer>
-            <Expenses>{props.expenses ? `R$ ${props.expenses}` : 'Gastos não informados'}</Expenses>
+            <Expenses>{props.expenses ? `${toMoney(props.expenses)}` : 'Gastos não informados'}</Expenses>
             <SinceDate>{props.since ? `gastos a partir de ${formatDate(new Date(props.since))}` : 'Data não informada' }</SinceDate>
         </ExpensesContainer>
     </HeaderContainer>
