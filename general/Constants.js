@@ -115,7 +115,9 @@ export const convertGeneralData = data => ({
     state: data.siglaUf,
     function: data.cargo,
     address: data.endereco,
-    phone: data.telefone
+    phone: data.telefone,
+    expenses: data.totalDespesas,
+    since: data.atualizacao
 });
 
 export const convertExpensesByTopNProviders = data => ({
