@@ -29,8 +29,12 @@ export default class Footer extends PureComponent {
                     <Section>
                         <Title>APOIADORES</Title>
                         <LogosContainer>
-                            <THCLogo src={thcLogo} />
-                            <GoNuvemLogo src={gnLogo}/>
+                            <a href='http://www.teresinahc.org' target='_blank'>
+                                <THCLogo src={thcLogo} />
+                            </a>
+                            <a href='http://www.gonuvem.com.br' target='_blank'>
+                                <GoNuvemLogo src={gnLogo}/>
+                            </a>
                         </LogosContainer>
                     </Section>
                     <Section>

@@ -1,42 +1,30 @@
 import React, { Component } from 'react';
-import  {
-    Container,
-    ControllerIcon,
-    ControllerIconContainer,
-    Page,
-    Selected,
-    Unselected
-} from '../styles/PaginatorStyles';
+import ReactSVG from 'react-svg';
 import {
     nextIcon,
     previousIcon,
 } from '../general/Constants';
-
+import '../static/css/Paginator.css';
+import ReactPaginate from 'react-paginate';
 
 export default class Paginator extends Component {
 
     render() {
         return(
-            <Container style={this.props.style}>
-                <ControllerIconContainer onClick={() => this.props.onPreviousPress()}>
-                    <ControllerIcon src={previousIcon} />
-                </ControllerIconContainer>
-                    {
-                        Array(this.props.numberOfPages).fill(0).map((element, index) => (
-                            <Page 
-                            key={index}
-                            onClick={() => this.props.onPagePress(index)} 
-                            style={index === this.props.currentPage ? Selected : Unselected}
-                            >
-                                {index + 1}
-                            </Page>
-                        ))
-                    }                    
-                <ControllerIconContainer onClick={() => this.props.onNextPress()}>
-                    <ControllerIcon src={nextIcon} />
-                </ControllerIconContainer>
-                
-            </Container>
+           <ReactPaginate
+           pageCount={this.props.pageCount}
+           pageRangeDisplayed={5}
+           marginPagesDisplayed={2}
+           previousLabel={<ReactSVG src={previousIcon} svgClassName='enabledController' />}
+           nextLabel={<ReactSVG src={nextIcon} svgClassName='enabledController' />}
+           containerClassName='paginator-container'
+           pageClassName='paginator-page'
+           activeClassName='paginator-active-page'
+           pageLinkClassName='paginator-link'
+           breakClassName='paginator-ellipsis'
+           onPageChange={this.props.onPageChange}
+           forcePage={this.props.forcePage}
+           />
         );
     }
 }
