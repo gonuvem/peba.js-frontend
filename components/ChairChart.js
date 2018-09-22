@@ -62,7 +62,7 @@ export default class ChairChart extends PureComponent {
                 title: 'Ausência justificada'
             },
             {
-                chair: greenChair,
+                chair: redChair,
                 title: 'Ausência não justificada'
             }
         ];
