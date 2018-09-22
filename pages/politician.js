@@ -63,10 +63,10 @@ export default class Politician extends Component {
                     <PieChart title={'Gastos de 2018 divididos por categoria'} data={this.state.expensesByType}/>
                     <ChartsLine>
                         <ChairChart
-                        presence={250}
-                        justifiedAbsence={100}
-                        unjustifiedAbsence={250}
-                        total={600}
+                        presence={this.state.frequency.presence}
+                        justifiedAbsence={this.state.frequency.justifiedAbsence}
+                        unjustifiedAbsence={this.state.frequency.unjustifiedAbsence}
+                        total={this.state.frequency.total}
                         title={'Presenças nas sessões no ano de 2018'} 
                         />
                     </ChartsLine>

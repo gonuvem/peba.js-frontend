@@ -118,7 +118,8 @@ export const convertGeneralData = data => ({
     address: data.endereco,
     phone: data.telefone,
     expenses: data.totalDespesas,
-    since: data.atualizacao
+    since: data.atualizacao,
+    frequency: data.frequency
 });
 
 export const convertExpensesByTopNProviders = data => ({
