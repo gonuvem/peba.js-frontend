@@ -11,7 +11,7 @@ import {
     GoNuvemLogo,
     About,
     SocialMediaIcon,
-    AboutSection,
+    AboutSection
 } from '../styles/FooterStyles';
 import {
     thcLogo,
