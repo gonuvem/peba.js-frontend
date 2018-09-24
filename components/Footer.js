@@ -10,15 +10,16 @@ import {
     THCLogo,
     GoNuvemLogo,
     About,
-    SocialMediaIcon
+    SocialMediaIcon,
+    AboutSection,
 } from '../styles/FooterStyles';
-
 import {
     thcLogo,
     gnLogo,
     faceIcon,
     instaIcon
 } from '../general/Constants';
+import '../static/css/Footer.css';
 
 export default class Footer extends PureComponent {
 
@@ -37,12 +38,12 @@ export default class Footer extends PureComponent {
                             </a>
                         </LogosContainer>
                     </Section>
-                    <Section>
+                    <AboutSection>
                         <Title>SOBRE</Title>
                         <About>
                             PEBA é um projeto open-source, que indexa dados publicos sobre politicos.
                         </About>
-                    </Section>
+                    </AboutSection>
                     <Section>
                         <Title>CONTATO</Title>
                         <LogosContainer>
