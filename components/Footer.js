@@ -19,7 +19,6 @@ import {
     faceIcon,
     instaIcon
 } from '../general/Constants';
-import '../static/css/Footer.css';
 
 export default class Footer extends PureComponent {
 

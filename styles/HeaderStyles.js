@@ -14,6 +14,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media(max-width: 844px) {
+        padding: 0 20px 67px 20px;
+    }
 `;
 
 export const Logo = styled.img`
@@ -24,10 +28,32 @@ export const Logo = styled.img`
 `;
 
 export const LinksList = styled.ul`
-    display: flex;
-    flex-direction: row;
-    list-style: none;
     padding: 0;
+    display: flex;
+    list-style: none;
+    @media(max-width: 1068px) {
+        flex-direction: column;
+    }
+`;
+
+export const Navbar = styled.nav`
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    
+    @media(max-width: 1068px) {
+        background-color: #313131;
+        height: 100%;
+        width: 100%;
+        /*max-width: 266px;*/
+
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: -100%;
+
+        transition: left 0.3s ease-out;
+    }
 `;
 
 export const HeaderLink = styled.a`
@@ -52,4 +78,31 @@ export const TopBar = styled.div`
 export const Wrapper = styled.div`
     display: flex;
     align-items: center;
+    flex: 1;
+    justify-content: space-between;
+`;
+
+export const OpenMenu = styled.i`
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+
+    @media(min-width: 1068px) {
+        display: none
+    }
+`;
+
+export const CloseMenu = styled.i`
+    display: block;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+
+    @media(min-width: 1068px) {
+        display: none
+    }
 `;
