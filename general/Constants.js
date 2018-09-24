@@ -18,6 +18,7 @@ export const emailIcon = require('../static/images/Email_Icon.svg');
 export const greenChair = require('../static/images/chair_green.svg');
 export const yellowChair = require('../static/images/chair_yellow.svg');
 export const redChair = require('../static/images/chair_red.svg');
+export const hamburguerIcon = require('../static/images/drawer.svg');
 
 
 //header links

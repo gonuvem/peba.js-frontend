@@ -5,7 +5,8 @@ import {
     Wrapper,
     SearchIcon,
     Container,
-    ExplanationText
+    ExplanationText,
+    Content
 } from '../styles/SearchBarStyles';
 import { searchIcon } from '../general/Constants';
 
@@ -48,17 +49,19 @@ export default class SearchBar extends PureComponent {
     render() {
         return (
             <Container>
-                <Wrapper>
-                    <TextInput 
-                    value={this.state.searchText}
-                    onChange={this.handleChangeText}
-                    placeholder="Procure por um deputado ou senador"
-                    onSubmit={() => console.log('submited')}
-                    onKeyDown={this.handleKeyPress}
-                    />
-                    <SearchIcon onClick={this.dispatchSearch} src={searchIcon} />
-                </Wrapper>
-                <ExplanationText>Busque por nome, partido ou estado</ExplanationText>
+                <Content>
+                    <Wrapper>
+                        <TextInput 
+                        value={this.state.searchText}
+                        onChange={this.handleChangeText}
+                        placeholder="Procure por um deputado ou senador"
+                        onSubmit={() => console.log('submited')}
+                        onKeyDown={this.handleKeyPress}
+                        />
+                        <SearchIcon onClick={this.dispatchSearch} src={searchIcon} />
+                    </Wrapper>
+                    <ExplanationText>Busque por nome, partido ou estado</ExplanationText>
+                </Content>
             </Container>
         );
     }

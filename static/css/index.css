@@ -49,7 +49,7 @@ body {
   font-family: Roboto;
 }
 
-@media(max-width: 844px) {
+@media(max-width: 720px) {
   body {
     padding-bottom: 320px;
   }

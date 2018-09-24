@@ -24,9 +24,12 @@ export const Container = styled.div`
     @media(max-width: 844px) {
         
         flex-wrap: wrap;
-        height: 320px;
         padding: 18px 20px;
         align-items: flex-start;
+    }
+
+    @media(max-width: 720px) {
+        height: 320px;
     }
 `;
 
@@ -39,7 +42,7 @@ export const Section = styled.div`
     }
 `;
 
-export const AboutSection = Section.extend`
+export const AboutSection = styled(Section)`
     @media(max-width: 844px) {
         order: -1;
     }
