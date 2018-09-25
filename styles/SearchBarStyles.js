@@ -7,6 +7,10 @@ export const TextInput = styled.input`
     font-size: 17px;
     font-weight: 500;
     outline: none;
+
+    @media(max-width: 370px) {
+        font-size: 13px;
+    }
 `;
 
 export const Wrapper = styled.div`
@@ -43,6 +47,9 @@ export const ExplanationText = styled.p`
     font-size: 14px;
     color: #B5B5B5;
     margin: 0;
+    @media(max-width: 370px) {
+        font-size: 10px;
+    }
 `;
 
 export const Content = styled.div`
