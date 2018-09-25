@@ -4,7 +4,7 @@ import {
     HorizontalBarChartContainer,
     ChartTitle
 } from '../styles/ChartStyles';
-import { toMoney } from '../general/Constants';
+import { toMoney, truncate } from '../general/Constants';
 
 export default class HorizontalBarChart  extends PureComponent {
 
@@ -15,8 +15,8 @@ export default class HorizontalBarChart  extends PureComponent {
                 <HorizontalBar
                 data={this.props.data}
                 legend={{
-                    position: 'right',
-                    fullWidth: false,
+                    position: 'top',
+                    fullWidth: true,
                     labels: {
                         fontSize: 17,
                         fontColor: '#747474',
@@ -29,8 +29,12 @@ export default class HorizontalBarChart  extends PureComponent {
                     scales: {
                         xAxes: [{
                             ticks: {
-
                                 callback: (item) => `${toMoney(item)},00`
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                callback: (item) => truncate(item)
                             }
                         }]
                     },

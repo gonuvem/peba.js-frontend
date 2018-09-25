@@ -15,8 +15,8 @@ export default class VerticalBarChart extends PureComponent {
                 <Bar
                 data={this.props.data}
                 legend={{
-                    position: 'right',
-                    fullWidth: false,
+                    position: 'top',
+                    fullWidth: true,
                     labels: {
                         fontSize: 17,
                         fontColor: '#747474',
