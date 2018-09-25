@@ -40,6 +40,10 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    
+    @media(max-width: 844px) {
+        margin-top: ${props => props.marginTopOnMobile};
+    }
 `;
 
 export const ExplanationText = styled.p`
