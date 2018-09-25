@@ -13,10 +13,14 @@ export const Logo = styled.img`
 `;
 
 export const Title = styled.h2`
-    font-size: 42px;
+    font-size: 2.5em;
     color: #CC9C00;
     font-weight: 700;
     margin: 0 0 10px 0;
+    
+    @media(max-width: 844px) {
+        font-size: 1.5em
+    }
 `;
 
 export const TitleContainer = styled.div`

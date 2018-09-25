@@ -39,6 +39,7 @@ export const Section = styled.div`
     align-items: flex-start;
     height: 87px;
     @media(max-width: 844px) {
+        margin-bottom: 15px;
     }
 `;
 
