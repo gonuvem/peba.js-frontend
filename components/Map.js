@@ -19,7 +19,7 @@ export default class Map extends PureComponent {
         Array.from(svgStates).forEach((element, index) => {
             element.addEventListener('click', () => {
                 Router.push({
-                    pathname: `/search/state`,
+                    pathname: `/search`,
                     query: {
                         text: states[index].fullName,
                         state: states[index].abbreviation

@@ -151,3 +151,9 @@ export const convertExpensesByType = data => {
         }
     );
 };
+
+export const truncate = text => (
+    text.length >= 40 ?
+    `${text.substring(0, 40)}...`
+    : text
+)

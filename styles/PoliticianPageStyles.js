@@ -73,6 +73,10 @@ export const Container = styled.div`
     flex-direction: column;
     padding: 55px 20% 0 20%;
     align-items: center;
+
+    @media(max-width: 844px) {
+        padding: 30px 20px 0 20px;
+    }
 `;
 
 export const ChartsLine = styled.div`
