@@ -48,7 +48,7 @@ export default class SearchBar extends PureComponent {
 
     render() {
         return (
-            <Container>
+            <Container marginTopOnMobile={this.props.marginTopOnMobile}>
                 <Content>
                     <Wrapper>
                         <TextInput 
