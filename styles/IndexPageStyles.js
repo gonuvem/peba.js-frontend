@@ -19,7 +19,7 @@ export const Title = styled.h2`
     margin: 0 0 10px 0;
     
     @media(max-width: 844px) {
-        font-size: 1.5em
+        font-size: 1.3em
     }
 `;
 
@@ -43,6 +43,9 @@ export const AboutText = styled.a`
     color: #4B4B4B;
     font-size: 17px;
     font-weight: 400;
+    @media(max-width: 844px) {
+        font-size: .8em
+    }
 `;
 
 export const Section = styled.div`
@@ -66,7 +69,10 @@ export const HeaderContainer = styled.div`
 `;
 
 export const ErrorMessage = styled.div`
-    font-size: 30px;
+    font-size: 2em;
     font-weight: 500;
     text-align: center;
+    @media(max-width: 844px) {
+        font-size: 1.2em;
+    }
 `;

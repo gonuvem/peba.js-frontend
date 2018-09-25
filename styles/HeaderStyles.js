@@ -16,7 +16,7 @@ export const Container = styled.div`
     align-items: center;
 
     @media(max-width: 844px) {
-        padding: 0 20px 67px 20px;
+        padding: 0px 20px 10px 20px;
     }
 `;
 
