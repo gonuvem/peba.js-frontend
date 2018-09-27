@@ -22,6 +22,7 @@ export default class MyDocument extends Document {
           {css.map(file => (
             <link rel="stylesheet" href={`/_next/${file}`} key={file} />
           ))}
+          <link rel="shortcut icon" href="../static/images/favicon.png"></link>
           <link rel="stylesheet" href="../static/css/index.css" />
           <link rel="stylesheet" href="../static/css/Paginator.css" />
           <meta name="viewport" content="width=device-width" />
