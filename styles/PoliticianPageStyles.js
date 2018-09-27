@@ -77,6 +77,10 @@ export const Container = styled.div`
     @media(max-width: 844px) {
         padding: 30px 20px 0 20px;
     }
+
+    @media(max-width: 1627px) and (min-width: 845px) {
+        padding: 30px 10% 0 10%;
+    }
 `;
 
 export const ChartsLine = styled.div`
