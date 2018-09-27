@@ -37,11 +37,10 @@ export default class Header extends Component {
         return (
             <BackgroundView>
                 <Container>
-                <OpenMenu className='fas fa-bars' onClick={this.onMenuOpen} />
-                        <Navbar innerRef={this.navbarRef}>
-                    <TopBar>
-                        <Logo src={pebaLogoNavbar} />
-                        
+                    <OpenMenu className='fas fa-bars' onClick={this.onMenuOpen} />
+                    <Navbar innerRef={this.navbarRef}>
+                        <TopBar>
+                            <Logo src={pebaLogoNavbar} />
                             <CloseMenu className='fas fa-bars' onClick={this.onMenuClose} />
                             <Wrapper>
                                 <LinksList>
@@ -55,8 +54,7 @@ export default class Header extends Component {
                                 </LinksList>          
                                 <GithubButton/>
                             </Wrapper>    
-                        
-                    </TopBar>
+                        </TopBar>
                     </Navbar>
                     {this.props.children}
                 </Container>
