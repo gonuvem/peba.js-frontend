@@ -5,6 +5,10 @@ export const HeaderContainer = styled.div`
     flex-direction: column;
     align-items: center;
     margin-bottom: 67px;
+
+    @media(max-width: 844px) {
+        padding-top: 50px;
+    }
 `;
 
 export const Photo = styled.img`
@@ -20,12 +24,19 @@ export const Informations = styled.span`
     color: #FAFAFA;
     font-weight: 500;
     text-align: center;
+
+    @media(max-width: 500px) {
+        font-size: 25px;
+    }
 `;
 
 export const Email = styled.span`
     font-size: 17px;
     color: #CC9C00;
     font-weight: 400;
+    @media(max-width: 500px) {
+        font-size: 13px;
+    }
 `;
 
 export const EmailContainer = styled.div`
@@ -57,6 +68,10 @@ export const Expenses = styled.span`
     font-weight: 400;
     color: white;
     text-align: center;
+
+    @media(max-width: 500px) {
+        font-size: 25px;
+    }
 `;
 
 export const SinceDate = styled.span`
@@ -64,6 +79,10 @@ export const SinceDate = styled.span`
     font-weight: 400px;
     text-align: center;
     color: white;
+
+    @media(max-width: 500px) {
+        font-size: 11px;
+    }
 `;
 
 export const Container = styled.div`
@@ -71,8 +90,16 @@ export const Container = styled.div`
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: 55px 20% 0 20%;
+    padding: 55px 15% 0 15%;
     align-items: center;
+
+    @media(max-width: 844px) {
+        padding: 30px 20px 0 20px;
+    }
+
+    @media(max-width: 1627px) and (min-width: 845px) {
+        padding: 30px 10% 0 10%;
+    }
 `;
 
 export const ChartsLine = styled.div`

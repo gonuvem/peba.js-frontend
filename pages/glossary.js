@@ -14,7 +14,11 @@ import {
 import {
     Container,
     ControllerIconContainer,
-    Page
+    Page,
+    LettersContainer,
+    Select,
+    SelectContainer,
+    SelectHint
 } from '../styles/PaginatorStyles';
 import {
     nextIcon,
@@ -108,6 +112,7 @@ export default class Glossary extends Component {
                     <ControllerIconContainer onClick={() => { this.pageController('left')}}>
                         <ReactSVG src={previousIcon} svgClassName='enabledController' />
                     </ControllerIconContainer>
+                    <LettersContainer>
                     { letters.map((element, index) => (
                         <Page
                         key={index}
@@ -118,10 +123,28 @@ export default class Glossary extends Component {
                             {element}
                         </Page>
                     ))}
+                    </LettersContainer>
                     <ControllerIconContainer onClick={() => { this.pageController('right')}}>
                         <ReactSVG src={nextIcon} svgClassName='enabledController' />
                     </ControllerIconContainer>
                 </Container>
+                <SelectContainer>
+                    <Select>
+                        <select onChange={(event) => this.setState({currentPage: event.target.value})}>
+                        { letters.map((element, index) => (
+                            <option
+                            value={index}
+                            key={index}
+                            >
+                                {`Letra ${element}`}
+                            </option>
+                        ))}
+                        </select>
+                    </Select>
+                    <SelectHint>
+                        Seleciona uma letra acima para listar todas os termos
+                    </SelectHint>
+                </SelectContainer>
                 {this.conditionalRendering()}
             </Layout>
         );

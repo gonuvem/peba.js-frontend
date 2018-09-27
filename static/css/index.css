@@ -48,3 +48,9 @@ body {
   padding-bottom: 136px;
   font-family: Roboto;
 }
+
+@media(max-width: 720px) {
+  body {
+    padding-bottom: 320px;
+  }
+}

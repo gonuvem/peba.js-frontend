@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const BackgroundView = styled.div`
     width: 100%;
-    height: 136px;
     background-image: linear-gradient(94deg, #313131, #2F2F2F);
     background-repeat: no-repeat;
     background-position: center;
@@ -13,10 +12,25 @@ export const BackgroundView = styled.div`
 export const Container = styled.div`
     display: flex;
     flex: 1;
-    height: 100%;
+    height: 136px;
     padding: 0 20%;
     align-items: center;
     justify-content: space-between;
+
+    @media(max-width: 1068px) and (min-width: 845px ) {
+        padding: 0 10%;
+    }
+
+    @media(max-width: 844px) {
+        
+        flex-wrap: wrap;
+        padding: 18px 20px;
+        align-items: flex-start;
+    }
+
+    @media(max-width: 720px) {
+        height: 320px;
+    }
 `;
 
 export const Section = styled.div`
@@ -24,6 +38,15 @@ export const Section = styled.div`
     flex-direction: column;
     align-items: flex-start;
     height: 87px;
+    @media(max-width: 844px) {
+        margin-bottom: 15px;
+    }
+`;
+
+export const AboutSection = styled(Section)`
+    @media(max-width: 844px) {
+        order: -1;
+    }
 `;
 
 export const Title = styled.span`

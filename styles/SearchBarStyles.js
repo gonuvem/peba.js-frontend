@@ -7,6 +7,10 @@ export const TextInput = styled.input`
     font-size: 17px;
     font-weight: 500;
     outline: none;
+
+    @media(max-width: 370px) {
+        font-size: 13px;
+    }
 `;
 
 export const Wrapper = styled.div`
@@ -15,11 +19,12 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     margin-bottom: 3px;
     background-color: white;
-    width: 575px;
+    max-width: 575px;
+    width: 100%;
     height: 35px;
     border-radius: 4px;
     padding: 0 15px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);   
 `;
 
 export const SearchIcon = styled.img`
@@ -31,8 +36,14 @@ export const SearchIcon = styled.img`
 
 export const Container = styled.div`
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
+    
+    @media(max-width: 844px) {
+        margin-top: ${props => props.marginTopOnMobile};
+    }
 `;
 
 export const ExplanationText = styled.p`
@@ -40,4 +51,17 @@ export const ExplanationText = styled.p`
     font-size: 14px;
     color: #B5B5B5;
     margin: 0;
+    @media(max-width: 370px) {
+        font-size: 10px;
+    }
+`;
+
+export const Content = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 575px;
 `;

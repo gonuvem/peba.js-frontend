@@ -3,16 +3,28 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     align-items: center;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     border-bottom: 0.5px solid #9A9A9A;
     padding: 0 35px 60px 16px;
     margin-bottom: 40px;
     justify-content: space-between;
+    
+    @media(max-width: 844px) {
+        flex-direction: column;
+        padding: 0 20px 30px 20px;
+    }
 `;
 
 export const Data = styled.div`
     display: flex;
     align-items: center;
+
+    @media(max-width: 844px) {
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
 `;
 
 export const Photo = styled.img`
@@ -21,15 +33,20 @@ export const Photo = styled.img`
     object-fit: cover;
     border-radius: 100px;
     margin-right: 28px;
+    @media(max-width: 844px) {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 `;
 
 export const Name = styled.span`
-    font-size: 35px;
+    font-size: 30px;
     color: #5138BC;
     letter-spacing: 0.02em;
     font-weight: 500;
     margin-bottom: 16px;
     text-transform: uppercase;
+    text-align: center;
 `;
 
 export const DetailsContainer = styled.div`
@@ -38,13 +55,13 @@ export const DetailsContainer = styled.div`
 `;
 
 export const DetailText = styled.span`
-    font-size: 25px;
+    font-size: 20px;
     color: #705ACB;
     font-weight: 400;
 `;
 
 export const ExpensesText = styled.span`
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 700;
     color: #5138BC;
 `;

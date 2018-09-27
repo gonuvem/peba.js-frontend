@@ -15,7 +15,7 @@ import { pebaLogo } from '../general/Constants';
 const HeaderContent = () => (
     <HeaderContainer>
         <Logo src={pebaLogo} />
-        <SearchBar />
+        <SearchBar marginTopOnMobile={0} />
     </HeaderContainer>
 );
 
