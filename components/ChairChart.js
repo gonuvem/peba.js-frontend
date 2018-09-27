@@ -13,7 +13,10 @@ import {
     ChairLegendLine,
     ChairLegendText,
     ChairIco,
-
+    ChairLegendContainer,
+    ChairContent,
+    TilesContainer,
+    Tile
 } from '../styles/ChartStyles';
 import {
     greenChair,
@@ -76,18 +79,48 @@ export default class ChairChart extends PureComponent {
             this.props.frequency ?
                 <ChairChartContainer>
                     <ChartTitle>{this.props.title}</ChartTitle>
-                    <ChairWrapper>
-                        {Array(this.presence).fill(0).map((element, index) => (
-                            <ChairIcon key={index} src={greenChair} />
-                        ))}
-                        {Array(this.justifiedAbsence).fill(0).map((element, index) => (
-                            <ChairIcon key={index} src={yellowChair} />
-                        ))}
-                        {Array(this.unjustifiedAbsence).fill(0).map((element, index) => (
-                            <ChairIcon key={index} src={redChair} />
-                        ))}
-                    </ChairWrapper>
-                    <LegendContainer>
+                    <ChairContent>
+                        <TilesContainer>    
+                            { this.legend.map((element, index) => (
+                                <Tile borderColor={element.color}>
+                                </Tile>
+                            ))}
+                        </TilesContainer>
+                        <ChairLegendContainer>
+                            <ChairWrapper>
+                                {Array(this.presence).fill(0).map((element, index) => (
+                                    <ChairIcon key={index} src={greenChair} />
+                                ))}
+                                {Array(this.justifiedAbsence).fill(0).map((element, index) => (
+                                    <ChairIcon key={index} src={yellowChair} />
+                                ))}
+                                {Array(this.unjustifiedAbsence).fill(0).map((element, index) => (
+                                    <ChairIcon key={index} src={redChair} />
+                                ))}
+                            </ChairWrapper>
+                            <ChairLegendWrapper>
+                                {
+                                    this.chairLegend.map((element, index) => (
+                                        <ChairLegendLine key={index}>
+                                            <ChairIco src={element.chair} />
+                                            <ChairLegendText>{element.title}</ChairLegendText>
+                                        </ChairLegendLine>
+                                    ))
+                                }
+                            </ChairLegendWrapper>
+                        </ChairLegendContainer>
+                    </ChairContent>
+                </ChairChartContainer>
+            :
+            <ChairChartContainer>
+                <ChartTitle>Frequência não informada</ChartTitle>
+            </ChairChartContainer>
+        );
+    }
+}
+
+/**
+ *   <LegendContainer>
                         {
                             this.legend.map((element, index) => (
                                 <LegendLine key={index}>
@@ -99,21 +132,5 @@ export default class ChairChart extends PureComponent {
                             ))
                         }
                     </LegendContainer>
-                    <ChairLegendWrapper>
-                        {
-                            this.chairLegend.map((element, index) => (
-                                <ChairLegendLine key={index}>
-                                    <ChairIco src={element.chair} />
-                                    <ChairLegendText>{element.title}</ChairLegendText>
-                                </ChairLegendLine>
-                            ))
-                        }
-                    </ChairLegendWrapper>
-                </ChairChartContainer>
-            :
-            <ChairChartContainer>
-                <ChartTitle>Frequência não informada</ChartTitle>
-            </ChairChartContainer>
-        );
-    }
-}
+ * 
+ */
