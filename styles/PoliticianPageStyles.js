@@ -5,6 +5,10 @@ export const HeaderContainer = styled.div`
     flex-direction: column;
     align-items: center;
     margin-bottom: 67px;
+
+    @media(max-width: 844px) {
+        padding-top: 50px;
+    }
 `;
 
 export const Photo = styled.img`
