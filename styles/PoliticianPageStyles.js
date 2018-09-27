@@ -101,10 +101,3 @@ export const Container = styled.div`
         padding: 30px 10% 0 10%;
     }
 `;
-
-export const ChartsLine = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 50px 0;
-`;

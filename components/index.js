@@ -10,6 +10,7 @@ import VerticalBarChart from './VerticalBarChart';
 import HorizontalBarChart from './HorizontalBarChart';
 import ChairChart from './ChairChart';
 import ExpensesTable from './ExpensesTable';
+import LoadingSpinner from './LoadingSpinner';
 
 export {
     Header,
@@ -23,5 +24,6 @@ export {
     VerticalBarChart,
     HorizontalBarChart,
     ChairChart,
-    ExpensesTable
+    ExpensesTable,
+    LoadingSpinner
 };
