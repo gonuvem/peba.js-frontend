@@ -57,7 +57,7 @@ export const PieLegendLine = styled.div`
 
 export const LegendBox = styled.div`
     background-color: ${props => props.color};
-    width: 30px;
+    width: 30px !important;
     height: 10px;
     margin-right: 15px;
 `;
@@ -68,6 +68,10 @@ export const PieLegendText = styled.span`
     color: '#747474';
     font-family: 'Roboto';
     padding: 21;
+
+    @media(max-width: 1620px) {
+        max-width: 80%;
+    }
 `;
 
 export const ChartTitle = styled.span`

@@ -34,8 +34,8 @@ export default class PieChart extends PureComponent {
                     legend={{
                         display: false,
                     }}
-                    width={350}
-                    height={350}
+                    width={300}
+                    height={300}
                     options={{
                         responsiveAnimationDuration: 1500,
                         maintainAspectRatio: false,
