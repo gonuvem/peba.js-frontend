@@ -4,13 +4,22 @@ export const PieChartContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 500px;
+    min-height: 500px;
     align-items: center;
     padding: 15px;
+
 `;
 
 export const PieContent = styled.div`
     display: flex;
+
+    @media(max-width: 1627px) {
+        flex-direction: column-reverse;
+    }
+
+    @media(max-width: 1627px) and (min-width: 845px) {
+        width: 100%;
+    }
 `;
 
 export const PieContainer = styled.div`
@@ -26,6 +35,12 @@ export const PieLegendContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+
+    @media(max-width: 1627px) and (min-width: 845px) {
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
 `;
 
 export const PieLegendLine = styled.div`
@@ -33,6 +48,11 @@ export const PieLegendLine = styled.div`
     align-items: center;
     justify-content: flex-start;
     margin: 10px 0;
+    
+    @media(max-width: 1627px) and (min-width: 845px) {
+        width: 50%;
+        
+    }
 `;
 
 export const LegendBox = styled.div`
