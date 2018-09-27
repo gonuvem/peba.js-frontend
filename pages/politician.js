@@ -61,15 +61,10 @@ export default class Politician extends Component {
                 <Container>
                     <VerticalBarChart title={'Gastos por mês no ano de 2018'} data={this.state.expensesByMonthData} />
                     <PieChart title={'Gastos de 2018 divididos por categoria'} data={this.state.expensesByType}/>
-                    <ChartsLine>
-                        <ChairChart
-                        presence={250}
-                        justifiedAbsence={100}
-                        unjustifiedAbsence={250}
-                        total={600}
-                        title={'Presenças nas sessões no ano de 2018'} 
-                        />
-                    </ChartsLine>
+                    <ChairChart
+                    frequency={this.state.frequency}
+                    title={'Presenças nas sessões no ano de 2018'} 
+                    />
                     <HorizontalBarChart title={'Maiores beneficiários dos gastos de 2018'} data={this.state.expensesByTopNProviders} />
                     <ExpensesTable id={this.props.politicianId} title={'Classificação das despesas'} />
                 </Container>

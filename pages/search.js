@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { 
     Layout, 
     SearchBar, 
-    Paginator ,
+    Paginator,
     PoliticianCard
 } from '../components';
 import { 
@@ -128,7 +128,7 @@ export default class Search extends Component {
 
     render() {
         return (
-            <Layout headerContent={<SearchBar/>}>
+            <Layout headerContent={<SearchBar marginTopOnMobile={'60px'}/>}>
                 {this.conditionalRendering()}
             </Layout>
         );

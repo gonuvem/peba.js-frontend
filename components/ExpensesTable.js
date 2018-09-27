@@ -12,7 +12,12 @@ import {
     DateString,
     Kind,
     Value,
-    TableWrapper
+    TableWrapper,
+    ResponsiveTable,
+    Datum,
+    ResponsiveLine,
+    ResponsiveData,
+    ResponsiveHeader
 } from '../styles/ExpensesTableStyles';
 import { formatDate, toMoney } from '../general/Constants';
 import { ChartTitle } from '../styles/ChartStyles';
@@ -71,6 +76,30 @@ export default class ExpensesTable extends PureComponent {
                             }
                         </tbody>
                     </Table>
+                    <ResponsiveTable>
+                            {
+                                this.state.expenses.map((element, id) => (
+                                    <Datum key={id}>
+                                        <ResponsiveLine>
+                                            <ResponsiveHeader>Fonte</ResponsiveHeader>
+                                            <ResponsiveData style={{ justifyContent: 'flex-start', textAlign: 'left' }}>{element.provider.name}</ResponsiveData>
+                                        </ResponsiveLine>
+                                        <ResponsiveLine>
+                                            <ResponsiveHeader>Data</ResponsiveHeader>
+                                            <ResponsiveData>{formatDate(new Date(element.date))}</ResponsiveData>
+                                        </ResponsiveLine>
+                                        <ResponsiveLine>
+                                            <ResponsiveHeader>Tipo</ResponsiveHeader>
+                                            <ResponsiveData>{element.type}</ResponsiveData>
+                                        </ResponsiveLine>
+                                        <ResponsiveLine>
+                                            <ResponsiveHeader>Valor</ResponsiveHeader>
+                                            <ResponsiveData>{toMoney(parseFloat(element.value))}</ResponsiveData>
+                                        </ResponsiveLine>
+                                    </Datum>
+                                ))
+                            }
+                    </ResponsiveTable>
                     <Paginator
                     onPageChange={this.requestPage} 
                     pageCount={this.state.pages}

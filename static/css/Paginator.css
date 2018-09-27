@@ -11,6 +11,7 @@
     margin: 56px auto;
     max-width: 600px;
     padding: 0;
+    flex-wrap: wrap;
 }
 
 .paginator-page {
@@ -47,6 +48,29 @@
 
 ul {
     list-style: none;
+}
+
+@media(max-width: 844px) {
+    .paginator-page {
+        width: 25px;
+        height: 25px;
+        font-size: 19px;
+    }
+
+    .paginator-active-page {
+        width: 25px;
+        height: 25px;
+        font-size: 19px;
+    }
+
+    .enabledController {
+        height: 15px;
+        width: 15px;
+    }
+
+    .paginator-container {
+        margin: 25px 0;
+    }
 }
 
 .paginator-link {

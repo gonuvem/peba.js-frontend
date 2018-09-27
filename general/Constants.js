@@ -18,6 +18,7 @@ export const emailIcon = require('../static/images/Email_Icon.svg');
 export const greenChair = require('../static/images/chair_green.svg');
 export const yellowChair = require('../static/images/chair_yellow.svg');
 export const redChair = require('../static/images/chair_red.svg');
+export const hamburguerIcon = require('../static/images/drawer.svg');
 
 
 //header links
@@ -118,7 +119,8 @@ export const convertGeneralData = data => ({
     address: data.endereco,
     phone: data.telefone,
     expenses: data.totalDespesas,
-    since: data.atualizacao
+    since: data.atualizacao,
+    frequency: data.frequency
 });
 
 export const convertExpensesByTopNProviders = data => ({
@@ -149,3 +151,9 @@ export const convertExpensesByType = data => {
         }
     );
 };
+
+export const truncate = text => (
+    text.length >= 40 ?
+    `${text.substring(0, 40)}...`
+    : text
+)
