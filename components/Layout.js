@@ -30,7 +30,7 @@ export default class Initial extends PureComponent {
     render() {
         return (
             <Container>
-                <LoadingSpinner show={this.state.loading}/>
+                <LoadingSpinner show={this.state.loading} position='fixed'/>
                 <Header>
                     {this.props.headerContent}
                 </Header>

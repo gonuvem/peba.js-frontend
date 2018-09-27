@@ -6,7 +6,8 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: ${props => props.position};
     z-index: 35;
     background: rgba(49, 49, 49, 0.5);
+    background-color: ${props => props.backgroundColor}
 `;
