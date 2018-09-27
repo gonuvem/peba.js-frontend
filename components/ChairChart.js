@@ -4,11 +4,6 @@ import {
     ChairChartContainer,
     ChairWrapper,
     ChairIcon,
-    Dot,
-    LegendContainer,
-    LegendLine,
-    LegendName,
-    LegendValue,
     ChairLegendWrapper,
     ChairLegendLine,
     ChairLegendText,
@@ -16,7 +11,9 @@ import {
     ChairLegendContainer,
     ChairContent,
     TilesContainer,
-    Tile
+    Tile,
+    TileTitle,
+    TileValue
 } from '../styles/ChartStyles';
 import {
     greenChair,
@@ -83,6 +80,8 @@ export default class ChairChart extends PureComponent {
                         <TilesContainer>    
                             { this.legend.map((element, index) => (
                                 <Tile borderColor={element.color}>
+                                    <TileTitle>{`${element.name}:`}</TileTitle>
+                                    <TileValue color={element.color}>{`${element.value} seções`}</TileValue>
                                 </Tile>
                             ))}
                         </TilesContainer>

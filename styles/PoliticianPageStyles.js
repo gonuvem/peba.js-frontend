@@ -24,12 +24,19 @@ export const Informations = styled.span`
     color: #FAFAFA;
     font-weight: 500;
     text-align: center;
+
+    @media(max-width: 500px) {
+        font-size: 25px;
+    }
 `;
 
 export const Email = styled.span`
     font-size: 17px;
     color: #CC9C00;
     font-weight: 400;
+    @media(max-width: 500px) {
+        font-size: 13px;
+    }
 `;
 
 export const EmailContainer = styled.div`
@@ -61,6 +68,10 @@ export const Expenses = styled.span`
     font-weight: 400;
     color: white;
     text-align: center;
+
+    @media(max-width: 500px) {
+        font-size: 25px;
+    }
 `;
 
 export const SinceDate = styled.span`
@@ -68,6 +79,10 @@ export const SinceDate = styled.span`
     font-weight: 400px;
     text-align: center;
     color: white;
+
+    @media(max-width: 500px) {
+        font-size: 11px;
+    }
 `;
 
 export const Container = styled.div`
