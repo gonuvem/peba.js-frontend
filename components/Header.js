@@ -41,7 +41,7 @@ export default class Header extends Component {
                     <Navbar innerRef={this.navbarRef}>
                         <TopBar>
                             <Logo src={pebaLogoNavbar} />
-                            <CloseMenu className='fas fa-bars' onClick={this.onMenuClose} />
+                            <CloseMenu className='fas fa-arrow-left' onClick={this.onMenuClose} />
                             <Wrapper>
                                 <LinksList>
                                     {

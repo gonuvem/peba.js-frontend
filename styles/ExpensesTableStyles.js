@@ -12,6 +12,9 @@ export const TableWrapper = styled.div`
     background-color: #FFFFFF;
     border-radius: 8px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    min-width: 100%;
+    min-height: 500px;
+    position: relative;
 `;
 
 export const Table = styled.table`
@@ -100,7 +103,7 @@ export const Data = styled.span`
 `;
 
 export const Provider = styled.td`
-    width: 45%;
+    width: 30%;
     padding-left: 30px;
 `;
 
@@ -109,7 +112,7 @@ export const DateString = styled.td`
 `;
 
 export const Kind = styled.td`
-    width: 30%;
+    width: 45%;
 `;
 
 export const Value = styled.td`
