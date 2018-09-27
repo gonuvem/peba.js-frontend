@@ -130,6 +130,9 @@ export const TilesContainer = styled.div`
 
 export const Tile = styled.div`
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
     width: 40%;
     height: 97px;
     border-radius: 4px;
@@ -154,6 +157,20 @@ export const Tile = styled.div`
         margin-bottom: 20px;
         margin-right: 0;
     }
+`;
+
+export const TileTitle = styled.span`
+    font-weight: 700;
+    color: #707070;
+    font-size: 17.5px;
+`;
+
+export const TileValue = styled.span`
+    color: ${props => props.color};
+    font-weight: 500;
+    padding-left: 10px;
+    font-size: 17.5px;
+    letter-spacing: 0.02em;
 `;
 
 export const ChartTitle = styled.span`
@@ -209,39 +226,6 @@ export const ChairIcon = styled.img`
     width: calc(100% / 8);
     margin-bottom: 10px;
     max-width: 53px;
-`;
-
-export const Dot = styled.div`
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    margin-right: 6px;
-    background-color: ${props => props.backgroundColor};
-`;
-
-export const LegendContainer = styled.div`
-    display: flex;
-    width: 100%;
-    padding: 0 12%;
-    flex-direction: column;
-    align-items: flex-start;
-`;
-
-export const LegendLine = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 6px 0;
-`;
-
-export const LegendName = styled.span`
-    color: #676767;
-    font-size: 17px;
-    font-weight: 500;
-`;
-
-export const LegendValue = styled.span`
-    font-weight: 300;
 `;
 
 export const ChairLegendWrapper = styled.div`
