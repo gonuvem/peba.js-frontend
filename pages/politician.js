@@ -18,7 +18,6 @@ import {
     Expenses,
     SinceDate,
     Container,
-    ChartsLine
 } from '../styles/PoliticianPageStyles'
 import { 
     emailIcon, 
