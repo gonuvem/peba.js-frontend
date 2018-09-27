@@ -74,6 +74,88 @@ export const PieLegendText = styled.span`
     }
 `;
 
+export const ChairContent = styled.div`
+    display: flex;
+    width: 100%;
+    min-height: 240px;
+
+    @media(max-width: 1375px) {
+        flex-direction: column-reverse;
+    }
+`;
+
+export const ChairLegendContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+    justify-content: flex-start;
+    align-items: center;
+
+    @media(min-width: 1375px) and (max-width: 1679px) {
+        flex: 4;
+    }
+
+    @media(min-width: 670px) and (max-width: 1375px) {
+        flex: 1;
+    }
+`;
+
+export const TilesContainer = styled.div`
+    display: flex;
+    flex: 5;
+    min-height: 100%;
+    flex-wrap: wrap;
+    @media(min-width: 1375px) and (max-width: 1679px) {
+        flex: 6;
+    }
+
+    @media(min-width: 1001px) and (max-width: 1375px) {
+        flex: 1;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    @media(max-width: 1000px) {
+        flex: 1;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    @media(max-width: 669px) {
+        flex: 1;
+        justify-content: center;
+        margin-top: 30px;
+    }
+`;
+
+export const Tile = styled.div`
+    display: flex;
+    width: 40%;
+    height: 97px;
+    border-radius: 4px;
+    margin-right: 42px;
+    background-color: white;
+    border-left: 7px solid ${props => props.borderColor};
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+
+    @media(min-width: 1000px) and (max-width: 1375px) {
+        width: 22%;
+        margin-right: 0;
+    }
+
+    @media(min-width: 670px) and (max-width: 1000px) {
+        width: 40%;
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    @media(max-width: 669px) {
+        width: 100%;
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+`;
+
 export const ChartTitle = styled.span`
     font-size: 21px;
     color: #747474;
@@ -104,10 +186,13 @@ export const HorizontalBarChartContainer = styled.div`
 export const ChairChartContainer = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: 611px;
-    max-height: 479px;
+    width: 100%;
+    min-height: 479px;
     align-items: center;
     padding: 15px;
+    
+   
+    
 `;
 
 export const ChairWrapper = styled.div`
@@ -116,13 +201,14 @@ export const ChairWrapper = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 0 12%;
-    margin: 41px 0;
+    max-width: 424px;
+    margin-bottom: 22px;
 `;
 
 export const ChairIcon = styled.img`
     width: calc(100% / 8);
     margin-bottom: 10px;
+    max-width: 53px;
 `;
 
 export const Dot = styled.div`
@@ -163,13 +249,23 @@ export const ChairLegendWrapper = styled.div`
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    margin-top: 38px;
+
+    @media(max-width: 466px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: auto;
+    }
 `;
 
 export const ChairLegendLine = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    
+    @media(max-width: 466px) {
+        margin-bottom: 15px;
+    }
 `;
 
 export const ChairIco = styled.img`
