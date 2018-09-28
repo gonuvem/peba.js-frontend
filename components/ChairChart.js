@@ -120,19 +120,3 @@ export default class ChairChart extends PureComponent {
         );
     }
 }
-
-/**
- *   <LegendContainer>
-                        {
-                            this.legend.map((element, index) => (
-                                <LegendLine key={index}>
-                                    <Dot backgroundColor={element.color} />
-                                    <LegendName>
-                                        {element.name} <LegendValue>{element.value} sessões</LegendValue>
-                                    </LegendName>
-                                </LegendLine>
-                            ))
-                        }
-                    </LegendContainer>
- * 
- */
