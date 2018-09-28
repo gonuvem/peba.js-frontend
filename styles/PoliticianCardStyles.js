@@ -46,7 +46,7 @@ export const Name = styled.span`
     font-weight: 500;
     margin-bottom: 16px;
     text-transform: uppercase;
-    text-align: center;
+    text-align: left;
 `;
 
 export const DetailsContainer = styled.div`
