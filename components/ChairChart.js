@@ -13,7 +13,8 @@ import {
     TilesContainer,
     Tile,
     TileTitle,
-    TileValue
+    TileValue,
+    TitleContainer
 } from '../styles/ChartStyles';
 import {
     greenChair,
@@ -75,7 +76,9 @@ export default class ChairChart extends PureComponent {
         return(
             this.props.frequency ?
                 <ChairChartContainer>
-                    <ChartTitle>{this.props.title}</ChartTitle>
+                    <TitleContainer>
+                        <ChartTitle>{this.props.title}</ChartTitle>
+                    </TitleContainer>
                     <ChairContent>
                         <TilesContainer>    
                             { this.legend.map((element, index) => (
