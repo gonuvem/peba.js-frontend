@@ -37,9 +37,9 @@ app.prepare()
     return handle(req, res)
   })
 
-  server.listen(3000, (err) => {
+  server.listen(process.env.PORT, (err) => {
     if (err) throw err
-    console.log('> Ready on http://localhost:3000')
+    console.log('> Ready on', process.env.PORT)
   })
 })
 .catch((ex) => {
