@@ -181,6 +181,13 @@ export const ChartTitle = styled.span`
     text-align: center;
 `;
 
+export const TitleContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+`;
+
 export const VerticalBarChartContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -207,9 +214,10 @@ export const ChairChartContainer = styled.div`
     min-height: 479px;
     align-items: center;
     padding: 15px;
-    
-   
-    
+
+    @media(max-width: 1375px) {
+        display: -moz-box;
+    }
 `;
 
 export const ChairWrapper = styled.div`

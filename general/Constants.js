@@ -82,7 +82,7 @@ export const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', '
 //functions
 
 export const formatDate = date => (
-    `${formatNumber(date.getDate())}/${date.getMonth() + 1}/${date.getFullYear()}`
+    `${formatNumber(date.getDate())}/${formatNumber(date.getMonth() + 1)}/${date.getFullYear()}`
 );
 
 const formatNumber = number => (
