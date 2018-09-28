@@ -13,7 +13,8 @@ import {
     TilesContainer,
     Tile,
     TileTitle,
-    TileValue
+    TileValue,
+    TitleContainer
 } from '../styles/ChartStyles';
 import {
     greenChair,
@@ -75,13 +76,15 @@ export default class ChairChart extends PureComponent {
         return(
             this.props.frequency ?
                 <ChairChartContainer>
-                    <ChartTitle>{this.props.title}</ChartTitle>
+                    <TitleContainer>
+                        <ChartTitle>{this.props.title}</ChartTitle>
+                    </TitleContainer>
                     <ChairContent>
                         <TilesContainer>    
                             { this.legend.map((element, index) => (
                                 <Tile borderColor={element.color}>
                                     <TileTitle>{`${element.name}:`}</TileTitle>
-                                    <TileValue color={element.color}>{`${element.value} seções`}</TileValue>
+                                    <TileValue color={element.color}>{`${element.value} sessões`}</TileValue>
                                 </Tile>
                             ))}
                         </TilesContainer>
@@ -117,19 +120,3 @@ export default class ChairChart extends PureComponent {
         );
     }
 }
-
-/**
- *   <LegendContainer>
-                        {
-                            this.legend.map((element, index) => (
-                                <LegendLine key={index}>
-                                    <Dot backgroundColor={element.color} />
-                                    <LegendName>
-                                        {element.name} <LegendValue>{element.value} sessões</LegendValue>
-                                    </LegendName>
-                                </LegendLine>
-                            ))
-                        }
-                    </LegendContainer>
- * 
- */

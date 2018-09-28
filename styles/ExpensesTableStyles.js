@@ -21,6 +21,8 @@ export const Table = styled.table`
     border-collapse: collapse;
     padding: 30px;
 
+    width: 100%;
+
     @media(max-width: 561px) {
         display: none;
     }
