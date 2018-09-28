@@ -214,9 +214,10 @@ export const ChairChartContainer = styled.div`
     min-height: 479px;
     align-items: center;
     padding: 15px;
-    
-   
-    
+
+    @media(max-width: 1375px) {
+        display: -moz-box;
+    }
 `;
 
 export const ChairWrapper = styled.div`

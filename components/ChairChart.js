@@ -84,7 +84,7 @@ export default class ChairChart extends PureComponent {
                             { this.legend.map((element, index) => (
                                 <Tile borderColor={element.color}>
                                     <TileTitle>{`${element.name}:`}</TileTitle>
-                                    <TileValue color={element.color}>{`${element.value} seções`}</TileValue>
+                                    <TileValue color={element.color}>{`${element.value} sessões`}</TileValue>
                                 </Tile>
                             ))}
                         </TilesContainer>
