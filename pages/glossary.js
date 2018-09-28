@@ -71,8 +71,8 @@ export default class Glossary extends Component {
             const response = await API({method: 'get', url: `glossary?letter=${letters[0]}` });
             return({ ...response.data, status: response.status });
         } catch (error) {
+            console.log('Error Glossary', error)
             return({ ...error.response.data, status: error.response.status });
-
         }
     }
 
