@@ -3,7 +3,8 @@ import {
     Layout, 
     SearchBar, 
     Paginator,
-    PoliticianCard
+    PoliticianCard,
+    LoadingSpinner
 } from '../components';
 import { 
     Container,
@@ -18,7 +19,8 @@ export default class Search extends Component {
         super(props);
         this.state = {
             currentPage: 0,
-            ...this.props
+            ...this.props,
+            loading: false
         };
 
         this.requestNewPage = this.requestNewPage.bind(this);
@@ -50,6 +52,7 @@ export default class Search extends Component {
         }
 
         try {
+            console.log('First', data)
             const response = await API({ method, url: `${query}page=0`, data });
             return { reserachText, ...response.data, status: response.status, state, method, query, data };
         } catch (error) {
@@ -59,11 +62,13 @@ export default class Search extends Component {
     }
 
     requestNewPage = async page => {
-        API({ method: this.state.method, url: `${this.state.query}page=${page.selected}`,  ...this.state.data })
+        this.setState({ loading: true });
+        API({ method: this.state.method, url: `${this.state.query}page=${page.selected}`,  data: {...this.state.data, page: page.selected} })
         .then((response) => {
-            this.setState({ ...response.data, currentPage: page.selected })
+            this.setState({ ...response.data, currentPage: page.selected, data: {...this.state.data, page: page.selected}, loading: false })
         })
         .catch((error) => {
+            this.setState({ loading: false });
             console.log('Pagination Error', error.response);
         })
     }
@@ -90,6 +95,7 @@ export default class Search extends Component {
 
     defaultResponse = () => (
         <Container>
+            <LoadingSpinner show={this.state.loading} position='absolute' />
             <ResultText>
                 <EvidenceText>
                     {this.state.total}
