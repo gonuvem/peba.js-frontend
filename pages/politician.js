@@ -41,7 +41,7 @@ const HeaderContent = props => (
         </EmailContainer>
         <ExpensesContainer>
             <Expenses>{props.expenses ? `${toMoney(props.expenses)}` : 'Gastos não informados'}</Expenses>
-            <SinceDate>{props.since ? `gastos a partir de ${formatDate(new Date(props.since))}` : 'Data não informada' }</SinceDate>
+            <SinceDate>{props.since ? `consulta realizada em ${formatDate(new Date(props.since))}` : 'Data não informada' }</SinceDate>
         </ExpensesContainer>
     </HeaderContainer>
 );
