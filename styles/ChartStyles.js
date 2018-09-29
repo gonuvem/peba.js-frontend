@@ -7,6 +7,7 @@ export const PieChartContainer = styled.div`
     min-height: 500px;
     align-items: center;
     padding: 15px;
+    margin: 50px 0;
 
 `;
 
@@ -218,12 +219,13 @@ export const ChairChartContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 479px;
+    min-height: 300px;
     align-items: center;
     padding: 15px;
 
     @media(max-width: 1375px) {
         display: -moz-box;
+        min-height: 479px;
     }
 `;
 
