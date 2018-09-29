@@ -8,7 +8,8 @@ import {
     LegendBox,
     PieLegendText,
     PieLegendLine,
-    PieContent
+    PieContent,
+    PieChartWrapper
 } from '../styles/ChartStyles';
 import { toMoney } from '../general/Constants';
 
@@ -29,23 +30,26 @@ export default class PieChart extends PureComponent {
                         }
                     </PieLegendContainer>
                 <PieContainer>
-                    <Pie
-                    data={this.props.data}
-                    legend={{
-                        display: false,
-                    }}
-                    width={300}
-                    height={300}
-                    options={{
-                        responsiveAnimationDuration: 1500,
-                        maintainAspectRatio: false,
-                        tooltips: {
-                            callbacks: {
-                                label: (item, value) => toMoney(value.datasets[0].data[item.index])
-                            }
-                        }
-                    }}
-                    />
+                    <PieChartWrapper>
+                        <Pie
+                        data={this.props.data}
+                        legend={{
+                            display: false,
+                        }}
+                        width={300}
+                        height={300}
+                        options={{
+                            responsiveAnimationDuration: 1500,
+                            maintainAspectRatio: true,
+                            tooltips: {
+                                callbacks: {
+                                    label: (item, value) => toMoney(value.datasets[0].data[item.index])
+                                }
+                            },
+                            onResize: () => console.log('Resizing')
+                        }}
+                        />
+                    </PieChartWrapper>
                 </PieContainer>
                 </PieContent>
             </PieChartContainer>
