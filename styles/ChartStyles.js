@@ -33,8 +33,13 @@ export const PieContainer = styled.div`
 export const PieChartWrapper = styled.div`
     max-width: 485px;
     max-height: 485px;
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
+
+    @media(max-width: 561px) {
+        width: 90%;
+        height: 90%;
+    }
 `;
 
 export const PieLegendContainer = styled.div`
@@ -43,7 +48,11 @@ export const PieLegendContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 30px;
+
+    @media(max-width: 561px) {
+        margin-top: 60px;
+    }
 
     @media(max-width: 1627px) and (min-width: 845px) {
         width: 100%;
