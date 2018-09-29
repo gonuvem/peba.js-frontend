@@ -43,6 +43,7 @@ export const PieLegendContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    margin-top: 60px;
 
     @media(max-width: 1627px) and (min-width: 845px) {
         width: 100%;
