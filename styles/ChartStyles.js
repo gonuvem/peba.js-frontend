@@ -26,7 +26,14 @@ export const PieContainer = styled.div`
     display: flex;
     flex: 1;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+`;
+
+export const PieChartWrapper = styled.div`
+    max-width: 485px;
+    max-height: 485px;
+    width: 90%;
+    height: 90%;
 `;
 
 export const PieLegendContainer = styled.div`
