@@ -11,6 +11,7 @@ import {
     HeaderContainer
 } from '../styles/IndexPageStyles';
 import { pebaLogo } from '../general/Constants';
+import API from '../general/Api';
 
 const HeaderContent = () => (
     <HeaderContainer>
@@ -20,6 +21,10 @@ const HeaderContent = () => (
 );
 
 export default class Initial extends Component {
+
+    componentDidMount() {
+        API.get('deputados');
+    }
 
     render() {
         return (
