@@ -47,7 +47,7 @@ export default class Header extends Component {
                                     {
                                         headerLinks.map((element, index) => (
                                             <Link key={index} href={element.href} as={element.as}>
-                                                <HeaderLink><li>{element.name}</li></HeaderLink>
+                                                <HeaderLink onClick={this.onMenuClose}><li>{element.name}</li></HeaderLink>
                                             </Link>
                                         ))
                                     }
