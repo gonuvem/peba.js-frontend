@@ -91,20 +91,20 @@ export default class ChairChart extends PureComponent {
                         <ChairLegendContainer>
                             <ChairWrapper>
                                 {Array(this.presence).fill(0).map((element, index) => (
-                                    <ChairIcon key={index} src={greenChair} />
+                                    <ChairIcon alt='Cadeira verde' key={index} src={greenChair} />
                                 ))}
                                 {Array(this.justifiedAbsence).fill(0).map((element, index) => (
-                                    <ChairIcon key={index} src={yellowChair} />
+                                    <ChairIcon alt='Cadeira amarela' key={index} src={yellowChair} />
                                 ))}
                                 {Array(this.unjustifiedAbsence).fill(0).map((element, index) => (
-                                    <ChairIcon key={index} src={redChair} />
+                                    <ChairIcon alt='Cadeira vermelha' key={index} src={redChair} />
                                 ))}
                             </ChairWrapper>
                             <ChairLegendWrapper>
                                 {
                                     this.chairLegend.map((element, index) => (
                                         <ChairLegendLine key={index}>
-                                            <ChairIco src={element.chair} />
+                                            <ChairIco alt='Cadeira' src={element.chair} />
                                             <ChairLegendText>{element.title}</ChairLegendText>
                                         </ChairLegendLine>
                                     ))
