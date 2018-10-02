@@ -25,6 +25,7 @@ export default class MyDocument extends Document {
           <link rel="shortcut icon" href="../static/images/favicon.png"></link>
           <link rel="stylesheet" href="../static/css/index.css" />
           <link rel="stylesheet" href="../static/css/Paginator.css" />
+          <meta name="Description" content="Peba é o indexador de dados públicos sobre deputados federais e senadores da república."/>
           <meta name="viewport" content="width=device-width" />
           {this.props.styleTags}
         </Head>
