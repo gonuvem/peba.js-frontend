@@ -15,7 +15,7 @@ import API from '../general/Api';
 
 const HeaderContent = () => (
     <HeaderContainer>
-        <Logo src={pebaLogo} />
+        <Logo alt='Peba logo' src={pebaLogo} />
         <SearchBar marginTopOnMobile={0} />
     </HeaderContainer>
 );

@@ -58,7 +58,7 @@ export default class SearchBar extends PureComponent {
                         onSubmit={() => console.log('submited')}
                         onKeyDown={this.handleKeyPress}
                         />
-                        <SearchIcon onClick={this.dispatchSearch} src={searchIcon} />
+                        <SearchIcon alt='Ícone de busca' onClick={this.dispatchSearch} src={searchIcon} />
                     </Wrapper>
                     <ExplanationText>Busque por nome, partido ou estado</ExplanationText>
                 </Content>

@@ -11,7 +11,7 @@ export default class GithubButton extends PureComponent {
     render() {
         return(
             <Wrapper href='' target='_blank'>
-                <Logo src={githubLogo} />
+                <Logo alt='Logo Github' src={githubLogo} />
                 <Text>Contribua</Text>
             </Wrapper>
         );

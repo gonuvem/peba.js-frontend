@@ -29,7 +29,7 @@ export default class PoliticianCard extends Component {
         return(
             <Container>
                 <Data>
-                    <Photo src={this.props.photo || 'http://style.anu.edu.au/_anu/4/images/placeholders/person.png'} />
+                    <Photo alt={`Foto de ${this.props.name}`} src={this.props.photo || 'http://style.anu.edu.au/_anu/4/images/placeholders/person.png'} />
                     <DetailsContainer>
                         <Name>{this.props.name}</Name>
                         <DetailText>Cargo: {this.props.function}</DetailText>
@@ -39,7 +39,7 @@ export default class PoliticianCard extends Component {
                     </DetailsContainer>
                 </Data>
                 <ButtonContainer onClick={this.handleClick}>
-                    <InformationIcon src={informationIcon}/>
+                    <InformationIcon alt='Icone de informações' src={informationIcon}/>
                     <ButtonText>Ver informações</ButtonText>
                 </ButtonContainer>
             </Container>
