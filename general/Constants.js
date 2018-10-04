@@ -47,10 +47,10 @@ export const headerLinks = [
 
 //states from map
 export const states = [
-    {fullName: 'Rondônia', abbreviation: 'RD'},
+    {fullName: 'Rondônia', abbreviation: 'RO'},
     {fullName: 'Acre', abbreviation: 'AC'},
     {fullName: 'Amazonas', abbreviation: 'AM'},
-    {fullName: 'Roraima', abbreviation: 'RO'},
+    {fullName: 'Roraima', abbreviation: 'RR'},
     {fullName: 'Amapá', abbreviation: 'AP'},
     {fullName: 'Tocantins', abbreviation: 'TO'},
     {fullName: 'Mato Grosso', abbreviation: 'MT'},
