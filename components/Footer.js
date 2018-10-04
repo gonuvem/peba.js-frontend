@@ -32,7 +32,7 @@ export default class Footer extends PureComponent {
                             <a href='http://www.teresinahc.org' target='_blank'>
                                 <THCLogo alt='Logo Teresina Hacker Clube' src={thcLogo} />
                             </a>
-                            <a href='http://www.gonuvem.com.br' target='_blank'>
+                            <a href='http://sitegonuvem.herokuapp.com/' target='_blank'>
                                 <GoNuvemLogo alt='Logo GoNuvem' src={gnLogo}/>
                             </a>
                         </LogosContainer>
