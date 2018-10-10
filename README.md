@@ -32,7 +32,7 @@ Você precisará do npm. Ele é instalado junto ao [Node.js](https://nodejs.org/
     > npm install
     ```
 
-2. Adicione o endereço base da [API](https://github.com/gonuvem/peba.js-backend) no arquivo general/Api.js no local indicado
+2. Adicione o endereço base da [API](https://github.com/gonuvem/peba.js-backend) no arquivo ./general/Api.js, no local indicado:
 
     ```js
     ...
