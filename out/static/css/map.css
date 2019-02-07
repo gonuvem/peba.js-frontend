@@ -1,0 +1,11 @@
+.c:hover {
+    fill: #4B4B4B;
+    stroke: white;
+    stroke-width: 2;
+    cursor: pointer;
+}
+
+.map {
+    width: 865px;
+    object-fit: contain
+}
