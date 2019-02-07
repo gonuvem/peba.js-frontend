@@ -21,10 +21,12 @@
     "styled-components": "^3.4.6"
   },
   "scripts": {
-    "dev": "node server.js",
+    "dev": "PORT=3000 node server.js",
     "heroku-postbuild": "npm run build",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "deploy": "next build && next export",
+    "export": "next export"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.7.1"

@@ -32,7 +32,7 @@ export default class Footer extends PureComponent {
                             <a href='http://www.teresinahc.org' target='_blank'>
                                 <THCLogo alt='Logo Teresina Hacker Clube' src={thcLogo} />
                             </a>
-                            <a href='http://sitegonuvem.herokuapp.com/' target='_blank'>
+                            <a href='https://gonuvem.com/' target='_blank'>
                                 <GoNuvemLogo alt='Logo GoNuvem' src={gnLogo}/>
                             </a>
                         </LogosContainer>
@@ -46,12 +46,12 @@ export default class Footer extends PureComponent {
                     <Section>
                         <Title>CONTATO</Title>
                         <LogosContainer>
-                            <a href='#' target='_blank'>
+                            <a href='https://www.instagram.com/gonuvem/' target='_blank'>
                                 <ReactSVG src={instaIcon} style={SocialMediaIcon}/>
                             </a>
-                            <a href='#' target='_blank'>
+                            {/* <a href='#' target='_blank'>
                                 <ReactSVG src={faceIcon} style={SocialMediaIcon}/>
-                            </a>
+                            </a> */}
                         </LogosContainer>
                     </Section>
                     <Section>
