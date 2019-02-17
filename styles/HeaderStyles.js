@@ -27,6 +27,7 @@ export const Container = styled.div`
 export const Logo = styled.img`
     width: 59px;
     height: 39px;
+    cursor: pointer;
     object-fit: contain;
     margin-right: 29px;
 

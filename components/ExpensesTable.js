@@ -39,7 +39,7 @@ export default class ExpensesTable extends PureComponent {
     requestPage = async page => {
         this.setState({ loading: true });
         try{
-            const expenses = await API.get(`expenses?politicianId=${this.props.id}&year=2018&perPage=20&page=${page.selected}`);
+            const expenses = await API.get(`expenses?politicianId=${this.props.id}&perPage=20&page=${page.selected}`);
             await this.setState({ ...expenses.data, loading: false });
     
         } catch (error) {

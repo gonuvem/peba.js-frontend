@@ -40,7 +40,9 @@ export default class Header extends Component {
                     <OpenMenu className='fas fa-bars' onClick={this.onMenuOpen} />
                     <Navbar innerRef={this.navbarRef}>
                         <TopBar>
-                            <Logo alt='Logo Peba' src={pebaLogoNavbar} />
+                            <Link href={'/'} as={'/'}>
+                                <Logo alt='Logo Peba' src={pebaLogoNavbar} />
+                            </Link>
                             <CloseMenu className='fas fa-arrow-left' onClick={this.onMenuClose} />
                             <Wrapper>
                                 <LinksList>
