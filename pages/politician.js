@@ -29,6 +29,7 @@ import {
     toMoney
 } from '../general/Constants';
 import API from '../general/Api';
+import { currentYear } from '../general/Constants';
 
 const HeaderContent = props => (
     <HeaderContainer>
@@ -58,13 +59,13 @@ export default class Politician extends Component {
         return(
             <Layout headerContent={<HeaderContent {...this.state} />}>
                 <Container>
-                    <VerticalBarChart title={'Gastos por mês no ano de 2018'} data={this.state.expensesByMonthData} />
-                    <PieChart title={'Gastos de 2018 divididos por categoria'} data={this.state.expensesByType}/>
+                    <VerticalBarChart title={`Gastos por mês no ano de ${currentYear}`} data={this.state.expensesByMonthData} />
+                    <PieChart title={`Gastos de ${currentYear} divididos por categoria`} data={this.state.expensesByType}/>
                     <ChairChart
                     frequency={this.state.frequency}
-                    title={'Presenças nas sessões no ano de 2018'} 
+                    title={`Presenças nas sessões no ano de ${currentYear}`} 
                     />
-                    <HorizontalBarChart title={'Maiores beneficiários dos gastos de 2018'} data={this.state.expensesByTopNProviders} />
+                    <HorizontalBarChart title={`Maiores beneficiários dos gastos de ${currentYear}`} data={this.state.expensesByTopNProviders} />
                     <ExpensesTable id={this.props.politicianId} title={'Classificação das despesas'} />
                 </Container>
             </Layout>
