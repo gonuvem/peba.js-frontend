@@ -157,3 +157,5 @@ export const truncate = text => (
     `${text.substring(0, 40)}...`
     : text
 )
+
+export const currentYear  = (new Date()).getFullYear();
