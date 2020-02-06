@@ -1,29 +1,12 @@
-import Header from './Header';
-import SearchBar from './SearchBar';
-import Map from './Map';
-import Footer from './Footer';
-import Layout from './Layout';
-import Paginator from './Paginator';
-import PoliticianCard from './PoliticianCard';
-import PieChart from './PieChart';
-import VerticalBarChart from './VerticalBarChart';
-import HorizontalBarChart from './HorizontalBarChart';
-import ChairChart from './ChairChart';
-import ExpensesTable from './ExpensesTable';
-import LoadingSpinner from './LoadingSpinner';
-
-export {
-    Header,
-    SearchBar,
-    Map,
-    Footer,
-    Layout,
-    Paginator,
-    PoliticianCard,
-    PieChart,
-    VerticalBarChart,
-    HorizontalBarChart,
-    ChairChart,
-    ExpensesTable,
-    LoadingSpinner
-};
+export { default as Header } from './Header';
+export { default as SearchBar } from './SearchBar';
+export { default as Footer } from './Footer';
+export { default as Layout } from './Layout';
+export { default as Paginator } from './Paginator';
+export { default as PoliticianCard } from './PoliticianCard';
+export { default as PieChart } from './PieChart';
+export { default as VerticalBarChart } from './VerticalBarChart';
+export { default as HorizontalBarChart } from './HorizontalBarChart';
+export { default as ChairChart } from './ChairChart';
+export { default as ExpensesTable } from './ExpensesTable';
+export { default as LoadingSpinner } from './LoadingSpinner';

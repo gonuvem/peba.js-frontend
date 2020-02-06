@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Router from 'next/router';
+import React from 'react';
+import { useRouter } from 'next/router';
 import {
     Container,
     Photo,
@@ -15,34 +15,41 @@ import {
 
 import { informationIcon, toMoney } from '../general/Constants';
 
-export default class PoliticianCard extends Component {
-    constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
+const PoliticianCard = props => {
+    const { 
+        name,
+        id,
+        photo,
+        function: polFunction,
+        party,
+        state,
+        expenses,
+    } = props;
+
+    const router = useRouter();
+
+    const handleClick = () => {
+        router.push(`/politician?id=${id}`).then(() => window.scrollTo(0, 0))
     }
 
-    handleClick = () => {
-        Router.push(`/politician?id=${this.props.id}`, `/politician/${this.props.id}`).then(() => window.scrollTo(0, 0))
-    }
-
-    render() {
-        return(
-            <Container>
-                <Data>
-                    <Photo alt={`Foto de ${this.props.name}`} src={this.props.photo || 'http://style.anu.edu.au/_anu/4/images/placeholders/person.png'} />
-                    <DetailsContainer>
-                        <Name>{this.props.name}</Name>
-                        <DetailText>Cargo: {this.props.function}</DetailText>
-                        <DetailText>Partido: {this.props.party}</DetailText>
-                        <DetailText>Estado: {this.props.state}</DetailText>
-                        <ExpensesText>Despesas: {toMoney(this.props.expenses)}</ExpensesText>
-                    </DetailsContainer>
-                </Data>
-                <ButtonContainer onClick={this.handleClick}>
-                    <InformationIcon alt='Icone de informações' src={informationIcon}/>
-                    <ButtonText>Ver informações</ButtonText>
-                </ButtonContainer>
-            </Container>
-        );
-    }
+    return(
+        <Container>
+            <Data>
+                <Photo alt={`Foto de ${name}`} src={photo || 'http://style.anu.edu.au/_anu/4/images/placeholders/person.png'} />
+                <DetailsContainer>
+                    <Name>{name}</Name>
+                    <DetailText>Cargo: {polFunction}</DetailText>
+                    <DetailText>Partido: {party}</DetailText>
+                    <DetailText>Estado: {state}</DetailText>
+                    <ExpensesText>Despesas: {toMoney(expenses)}</ExpensesText>
+                </DetailsContainer>
+            </Data>
+            <ButtonContainer onClick={handleClick}>
+                <InformationIcon alt='Icone de informações' src={informationIcon}/>
+                <ButtonText>Ver informações</ButtonText>
+            </ButtonContainer>
+        </Container>
+    );
 }
+
+export default PoliticianCard;

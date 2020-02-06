@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import Router from 'next/router';
 import {
     TextInput,
@@ -10,59 +10,45 @@ import {
 } from '../styles/SearchBarStyles';
 import { searchIcon } from '../general/Constants';
 
-export default class SearchBar extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchText: ''
-        };
+const SearchBar = ({ marginTopOnMobile }) => {
+    const [searchText, setSearchText] = useState('');
 
-        this.handleChangeText = this.handleChangeText.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-        this.dispatchSearch = this.dispatchSearch.bind(this);
-    }
-
-    handleChangeText = event => {
-        this.setState({ searchText: event.target.value });
-    }
-
-    handleKeyPress = event => {
-        if(event.keyCode == 13) {
-            this.dispatchSearch();
+    const handleKeyPress = event => {
+        if(event.key == 'Enter') {
+            dispatchSearch();
         }
     }
 
-    dispatchSearch = () => {
-        this.state.searchText.length !== 0 
+    const dispatchSearch = () => {
+        searchText.length !== 0 
         ?
             Router.push({
                 pathname: `/search`,
                 query: {
-                    terms: this.state.searchText,
+                    terms: searchText,
                 },
-                asPath: `/search/textual?terms=${this.state.searchText}`
             }).then(() => window.scrollTo(0, 0))
         :
             alert('Digite um termo para busca');
     }
 
-    render() {
-        return (
-            <Container marginTopOnMobile={this.props.marginTopOnMobile}>
-                <Content>
-                    <Wrapper>
-                        <TextInput 
-                        value={this.state.searchText}
-                        onChange={this.handleChangeText}
-                        placeholder="Procure por um deputado ou senador"
-                        onSubmit={() => console.log('submited')}
-                        onKeyDown={this.handleKeyPress}
-                        />
-                        <SearchIcon alt='Ícone de busca' onClick={this.dispatchSearch} src={searchIcon} />
-                    </Wrapper>
-                    <ExplanationText>Busque por nome, partido ou estado</ExplanationText>
-                </Content>
-            </Container>
-        );
-    }
+    return (
+        <Container marginTopOnMobile={marginTopOnMobile}>
+            <Content>
+                <Wrapper>
+                    <TextInput 
+                    value={searchText}
+                    onChange={e => setSearchText(e.target.value)}
+                    placeholder="Procure por um deputado ou senador"
+                    onSubmit={() => console.log('submited')}
+                    onKeyDown={handleKeyPress}
+                    />
+                    <SearchIcon alt='Ícone de busca' onClick={dispatchSearch} src={searchIcon} />
+                </Wrapper>
+                <ExplanationText>Busque por nome, partido ou estado</ExplanationText>
+            </Content>
+        </Container>
+    );
 }
+
+export default SearchBar;

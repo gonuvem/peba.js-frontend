@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Paginator,
     LoadingSpinner
@@ -22,94 +22,109 @@ import {
 } from '../styles/ExpensesTableStyles';
 import { formatDate, toMoney } from '../general/Constants';
 import { ChartTitle } from '../styles/ChartStyles';
-import API from '../general/Api';
+import api from '../general/Api';
 
-export default class ExpensesTable extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            expenses: [],
-            total: 0,
-            pages: 1,
-            loading: true
-        }
+// TODO refatorar requisição
 
-    }
-
-    requestPage = async page => {
-        this.setState({ loading: true });
+const ExpensesTable = ({ id, title }) => {
+    const [expenses, setExpenses] = useState([]);
+    const [page, setPage] = useState(0);
+    const [total, setTotal] = useState(0);
+    const [pages, setPages] = useState(1);
+    const [loading, setLoading] = useState(true);
+   
+    const requestPage = async () => {
+        setLoading(true);
         try{
-            const expenses = await API.get(`expenses?politicianId=${this.props.id}&perPage=20&page=${page.selected}`);
-            await this.setState({ ...expenses.data, loading: false });
+            const expenses = await api.get('expenses', { params: {
+                politicianId: id,
+                perPage: 20,
+                page,
+            }});
+
+            console.log(expenses);
+
+            //await this.setState({ ...expenses.data, loading: false });
     
         } catch (error) {
-            this.setState({ loading: false });
-            console.log(error.response.data.message)
+            setLoading(false);
         }
     }
 
-    async componentDidMount() {
-        this.requestPage({ selected: 0 });
-    }
+    useEffect(() => {
+        requestPage();
+    }, [page]);
 
-    render() {
-        return(
-            <Container>
-                <ChartTitle>{this.props.title}</ChartTitle>
-                <TableWrapper>
-                    <LoadingSpinner show={this.state.loading} backgroundColor='white' position='absolute'/>    
-                    <Table>
-                        <thead>
-                            <TableLine>
-                                <TableHeader>Fonte</TableHeader>
-                                <TableHeader>Data</TableHeader>
-                                <TableHeader>Tipo</TableHeader>
-                                <TableHeader style={{paddingRight: 30}}>Valor</TableHeader>
+    return(
+        <Container>
+            <ChartTitle>{title}</ChartTitle>
+            <TableWrapper>
+                <LoadingSpinner show={loading} backgroundColor='white' position='absolute'/>    
+                <Table>
+                    <thead>
+                        <TableLine>
+                            <TableHeader>Fonte</TableHeader>
+                            <TableHeader>Data</TableHeader>
+                            <TableHeader>Tipo</TableHeader>
+                            <TableHeader style={{paddingRight: 30}}>Valor</TableHeader>
+                        </TableLine>
+                    </thead>
+                    <tbody>
+                        {expenses.map((el, id) => (
+                            <TableLine key={id}>
+                                <Provider>
+                                    <Data style={{ justifyContent: 'flex-start', textAlign: 'left' }}>
+                                        {el.provider.name}
+                                    </Data>
+                                </Provider>
+                                <DateString>
+                                    <Data>
+                                        {formatDate(new Date(el.date))}
+                                    </Data>
+                                </DateString>
+                                <Kind>
+                                    <Data>
+                                        {el.type}
+                                    </Data>
+                                </Kind>
+                                <Value>
+                                    <Data>
+                                        {toMoney(parseFloat(el.value))}
+                                    </Data>
+                                </Value>
                             </TableLine>
-                        </thead>
-                        <tbody>
-                            {
-                                this.state.expenses.map((element, id) => (
-                                    <TableLine key={id}>
-                                        <Provider><Data style={{ justifyContent: 'flex-start', textAlign: 'left' }}>{element.provider.name}</Data></Provider>
-                                        <DateString><Data>{formatDate(new Date(element.date))}</Data></DateString>
-                                        <Kind><Data>{element.type}</Data></Kind>
-                                        <Value><Data>{toMoney(parseFloat(element.value))}</Data></Value>
-                                    </TableLine>
-                                ))
-                            }
-                        </tbody>
-                    </Table>
-                    <ResponsiveTable>
-                        {
-                            this.state.expenses.map((element, id) => (
-                                <Datum key={id}>
-                                    <ResponsiveLine>
-                                        <ResponsiveHeader>Fonte</ResponsiveHeader>
-                                        <ResponsiveData style={{ justifyContent: 'flex-start', textAlign: 'left' }}>{element.provider.name}</ResponsiveData>
-                                    </ResponsiveLine>
-                                    <ResponsiveLine>
-                                        <ResponsiveHeader>Data</ResponsiveHeader>
-                                        <ResponsiveData>{formatDate(new Date(element.date))}</ResponsiveData>
-                                    </ResponsiveLine>
-                                    <ResponsiveLine>
-                                        <ResponsiveHeader>Tipo</ResponsiveHeader>
-                                        <ResponsiveData>{element.type}</ResponsiveData>
-                                    </ResponsiveLine>
-                                    <ResponsiveLine>
-                                        <ResponsiveHeader>Valor</ResponsiveHeader>
-                                        <ResponsiveData>{toMoney(parseFloat(element.value))}</ResponsiveData>
-                                    </ResponsiveLine>
-                                </Datum>
-                            ))
-                        }
-                    </ResponsiveTable>
-                    <Paginator
-                    onPageChange={this.requestPage} 
-                    pageCount={this.state.pages}
-                    />
-                </TableWrapper>
-            </Container>
-        );
-    }
+                        ))}
+                    </tbody>
+                </Table>
+                <ResponsiveTable>
+                    {expenses.map((el, id) => (
+                        <Datum key={id}>
+                            <ResponsiveLine>
+                                <ResponsiveHeader>Fonte</ResponsiveHeader>
+                                <ResponsiveData style={{ justifyContent: 'flex-start', textAlign: 'left' }}>{el.provider.name}</ResponsiveData>
+                            </ResponsiveLine>
+                            <ResponsiveLine>
+                                <ResponsiveHeader>Data</ResponsiveHeader>
+                                <ResponsiveData>{formatDate(new Date(el.date))}</ResponsiveData>
+                            </ResponsiveLine>
+                            <ResponsiveLine>
+                                <ResponsiveHeader>Tipo</ResponsiveHeader>
+                                <ResponsiveData>{el.type}</ResponsiveData>
+                            </ResponsiveLine>
+                            <ResponsiveLine>
+                                <ResponsiveHeader>Valor</ResponsiveHeader>
+                                <ResponsiveData>{toMoney(parseFloat(el.value))}</ResponsiveData>
+                            </ResponsiveLine>
+                        </Datum>
+                    ))}
+                </ResponsiveTable>
+                <Paginator
+                onPageChange={({ selected }) => setPage(selected)} 
+                pageCount={pages}
+                />
+            </TableWrapper>
+        </Container>
+    );
 }
+
+export default ExpensesTable;

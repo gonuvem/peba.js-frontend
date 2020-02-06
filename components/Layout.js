@@ -1,42 +1,34 @@
-import React, { PureComponent } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header, Footer } from './index';
 import { Container } from '../styles/LayoutStyles';
 import { LoadingSpinner } from '../components';
 import Router from 'next/router';
 
+const Initial = ({ children, headerContent }) => {
+    const [loading, setLoading] = useState(false);
 
-export default class Initial extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            loading: false
-        };
-    }
-
-    componentDidMount() {
+    useEffect(() => {
         Router.onRouteChangeStart = (url) => {
-            console.log(`Loading: ${url}`);
-            this.setState({ loading: true });
+            setLoading(true);
         };
         Router.onRouteChangeComplete = () => {
-            this.setState({ loading: false });
+            setLoading(false);
         }
         Router.onRouteChangeError = () => {
-            this.setState({ loading: false });
-
+            setLoading(false);
         }
-    }
+    }, []);
 
-    render() {
-        return (
-            <Container>
-                <LoadingSpinner show={this.state.loading} position='fixed'/>
-                <Header>
-                    {this.props.headerContent}
-                </Header>
-                {this.props.children}
-                <Footer />
-            </Container>
-        );
-    }
+    return (
+        <Container>
+            <LoadingSpinner show={loading} position='fixed'/>
+            <Header>
+                {headerContent}
+            </Header>
+            {children}
+            <Footer />
+        </Container>
+    );
 }
+
+export default Initial;

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import {
     ChartTitle,
     ChairChartContainer,
@@ -22,101 +22,95 @@ import {
     yellowChair
 } from '../general/Constants';
 
-export default class ChairChart extends PureComponent {
-
-    constructor(props) {
-        super(props);
-        if(this.props.frequency) {
-            this.presence = Math.round((this.props.frequency.presence/this.props.frequency.total)*20);
-            this.justifiedAbsence = Math.round((this.props.frequency.justifiedAbsence/this.props.frequency.total)*20);
-            this.unjustifiedAbsence = Math.round((this.props.frequency.unjustifiedAbsence/this.props.frequency.total)*20);
-
-            this.legend = [
-                {
-                    color: '#97C7F6',
-                    name: 'Total de sessões',
-                    value: this.props.frequency.total
-                },
-                {
-                    color: '#00B894',
-                    name: 'Presenças confirmadas',
-                    value: this.props.frequency.presence
-                },
-                {
-                    color: '#A07A00',
-                    name: 'Ausências justificadas',
-                    value: this.props.frequency.justifiedAbsence
-                },
-                {
-                    color: '#E17055',
-                    name: 'Ausências não justificadas',
-                    value: this.props.frequency.unjustifiedAbsence
-                },
-            ];
-
-            this.chairLegend = [
-                {
-                    chair: greenChair,
-                    title: 'Presença confirmada'
-                },
-                {
-                    chair: yellowChair,
-                    title: 'Ausência justificada'
-                },
-                {
-                    chair: redChair,
-                    title: 'Ausência não justificada'
-                }
-            ];
-        }
-    }
-
-
-    render() {
-        return(
-            this.props.frequency ?
-                <ChairChartContainer>
-                    <TitleContainer>
-                        <ChartTitle>{this.props.title}</ChartTitle>
-                    </TitleContainer>
-                    <ChairContent>
-                        <TilesContainer>    
-                            { this.legend.map((element, index) => (
-                                <Tile borderColor={element.color}>
-                                    <TileTitle>{`${element.name}:`}</TileTitle>
-                                    <TileValue color={element.color}>{`${element.value} sessões`}</TileValue>
-                                </Tile>
-                            ))}
-                        </TilesContainer>
-                        <ChairLegendContainer>
-                            <ChairWrapper>
-                                {Array(this.presence).fill(0).map((element, index) => (
-                                    <ChairIcon alt='Cadeira verde' key={index} src={greenChair} />
-                                ))}
-                                {Array(this.justifiedAbsence).fill(0).map((element, index) => (
-                                    <ChairIcon alt='Cadeira amarela' key={index} src={yellowChair} />
-                                ))}
-                                {Array(this.unjustifiedAbsence).fill(0).map((element, index) => (
-                                    <ChairIcon alt='Cadeira vermelha' key={index} src={redChair} />
-                                ))}
-                            </ChairWrapper>
-                            <ChairLegendWrapper>
-                                {
-                                    this.chairLegend.map((element, index) => (
-                                        <ChairLegendLine key={index}>
-                                            <ChairIco alt='Cadeira' src={element.chair} />
-                                            <ChairLegendText>{element.title}</ChairLegendText>
-                                        </ChairLegendLine>
-                                    ))
-                                }
-                            </ChairLegendWrapper>
-                        </ChairLegendContainer>
-                    </ChairContent>
-                </ChairChartContainer>
-            :
+const ChairChart = ({ frequency, title }) => {
+    if(!frequency) {
+        return (
             <ChairChartContainer>
                 <ChartTitle>Frequência não informada</ChartTitle>
             </ChairChartContainer>
         );
     }
-}
+
+    const presence = Math.round((frequency.presence/frequency.total)*20);
+    const justifiedAbsence = Math.round((frequency.justifiedAbsence/frequency.total)*20);
+    const unjustifiedAbsence = Math.round((frequency.unjustifiedAbsence/frequency.total)*20);
+
+    const legend = [
+        {
+            color: '#97C7F6',
+            name: 'Total de sessões',
+            value: frequency.total
+        },
+        {
+            color: '#00B894',
+            name: 'Presenças confirmadas',
+            value: frequency.presence
+        },
+        {
+            color: '#A07A00',
+            name: 'Ausências justificadas',
+            value: frequency.justifiedAbsence
+        },
+        {
+            color: '#E17055',
+            name: 'Ausências não justificadas',
+            value: frequency.unjustifiedAbsence
+        },
+    ];
+
+    const chairLegend = [
+        {
+            chair: greenChair,
+            title: 'Presença confirmada'
+        },
+        {
+            chair: yellowChair,
+            title: 'Ausência justificada'
+        },
+        {
+            chair: redChair,
+            title: 'Ausência não justificada'
+        }
+    ];
+
+    return(
+        <ChairChartContainer>
+            <TitleContainer>
+                <ChartTitle>{title}</ChartTitle>
+            </TitleContainer>
+            <ChairContent>
+                <TilesContainer>    
+                    {legend.map((el, id) => (
+                        <Tile key={id} borderColor={el.color}>
+                            <TileTitle>{`${el.name}:`}</TileTitle>
+                            <TileValue color={el.color}>{`${el.value} sessões`}</TileValue>
+                        </Tile>
+                    ))}
+                </TilesContainer>
+                <ChairLegendContainer>
+                    <ChairWrapper>
+                        {Array(presence).fill(0).map((_, id) => (
+                            <ChairIcon alt='Cadeira verde' key={id} src={greenChair} />
+                        ))}
+                        {Array(justifiedAbsence).fill(0).map((_, id) => (
+                            <ChairIcon alt='Cadeira amarela' key={id} src={yellowChair} />
+                        ))}
+                        {Array(unjustifiedAbsence).fill(0).map((_, id) => (
+                            <ChairIcon alt='Cadeira vermelha' key={id} src={redChair} />
+                        ))}
+                    </ChairWrapper>
+                    <ChairLegendWrapper>
+                        {chairLegend.map((el, id) => (
+                            <ChairLegendLine key={id}>
+                                <ChairIco alt='Cadeira' src={el.chair} />
+                                <ChairLegendText>{el.title}</ChairLegendText>
+                            </ChairLegendLine>
+                        ))}
+                    </ChairLegendWrapper>
+                </ChairLegendContainer>
+            </ChairContent>
+        </ChairChartContainer>
+    );
+};
+
+export default ChairChart;

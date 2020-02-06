@@ -1,24 +1,24 @@
 const randomColor = require('randomcolor');
 
 //images
-export const pebaLogoNavbar = require('../static/images/peba_logo_navbar.png');
-export const header_bg = require('../static/images/header_bg.png');
-export const thcLogo = require('../static/images/teresinahc.png');
-export const gnLogo = require('../static/images/gonuvem.png');
-export const faceIcon = require('../static/images/face-icon.svg');
-export const instaIcon = require('../static/images/insta-icon.svg');
-export const githubLogo = require('../static/images/github-logo.svg');
-export const searchIcon = require('../static/images/search.svg');
-export const pebaLogo = require('../static/images/peba_logo.png');
-export const nextIcon = require('../static/images/Next.svg');
-export const previousIcon = require('../static/images/Previous.svg');
-export const informationIcon = require('../static/images/information-button.svg');
-export const map = require('../static/images/Brazil_Map.svg');
-export const emailIcon = require('../static/images/Email_Icon.svg');
-export const greenChair = require('../static/images/chair_green.svg');
-export const yellowChair = require('../static/images/chair_yellow.svg');
-export const redChair = require('../static/images/chair_red.svg');
-export const hamburguerIcon = require('../static/images/drawer.svg');
+export const pebaLogoNavbar = '/static/images/peba_logo_navbar.png';
+export const header_bg = '/static/images/header_bg.png';
+export const thcLogo = '/static/images/teresinahc.png';
+export const gnLogo = '/static/images/gonuvem.png';
+export const faceIcon = '/static/images/face-icon.svg';
+export const instaIcon = '/static/images/insta-icon.svg';
+export const githubLogo = '/static/images/github-logo.svg';
+export const searchIcon = '/static/images/search.svg';
+export const pebaLogo = '/static/images/peba_logo.png';
+export const nextIcon = '/static/images/Next.svg';
+export const previousIcon = '/static/images/Previous.svg';
+export const informationIcon = '/static/images/information-button.svg';
+export const map = '/static/images/Brazil_Map.svg';
+export const emailIcon = '/static/images/Email_Icon.svg';
+export const greenChair = '/static/images/chair_green.svg';
+export const yellowChair = '/static/images/chair_yellow.svg';
+export const redChair = '/static/images/chair_red.svg';
+export const hamburguerIcon = '/static/images/drawer.svg';
 
 
 //header links
@@ -159,3 +159,19 @@ export const truncate = text => (
 )
 
 export const currentYear  = (new Date()).getFullYear();
+
+export const queryStringParser = query => {
+    const noQuestionMark = query.slice(1);
+    const textualParams = noQuestionMark.split('&').filter(el => el !== "");
+
+    const params = {};
+
+    textualParams.forEach(el => {
+        const [name, value] = el.split('=');
+
+        params[name] = decodeURIComponent(value);
+    });
+
+    return params;
+ }
+ 

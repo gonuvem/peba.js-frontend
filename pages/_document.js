@@ -12,16 +12,10 @@ export default class MyDocument extends Document {
   }
 
   render() {
-    const { buildManifest } = this.props;
-    const { css } = buildManifest;
     return (
       <html lang='pt-br'>
         <Head>
-          <title>Peba - Indexador de Dados Públicos</title>
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
-          {css.map(file => (
-            <link rel="stylesheet" href={`/_next/${file}`} key={file} />
-          ))}
           <link rel="shortcut icon" href="../static/images/favicon.png"></link>
           <link rel="stylesheet" href="../static/css/index.css" />
           <link rel="stylesheet" href="../static/css/Paginator.css" />
