@@ -20,8 +20,9 @@ const Search = () => {
     const [pages, setPages] = useState(0);
     const [loading, setLoading] = useState(true);
     const [politicians, setPoliticians] = useState([]);
-    const { terms, state: uf } = queryStringParser(location.search);
 
+    const { terms, state: uf } = queryStringParser(typeof window !== 'undefined' ? location.search : '');
+    
     const requestData = async () => {
         setLoading(true);
         const method = uf ? 'GET' : 'POST';
@@ -46,8 +47,11 @@ const Search = () => {
 
     useEffect(() => {
         requestData();
-    }, [page, uf, terms]);
+    }, [page, uf]);
 
+    useEffect(() => {
+        setPage(0);
+    }, [terms]);
 
     const render = () => {
         if(loading) {
