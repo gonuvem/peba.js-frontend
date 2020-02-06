@@ -14,8 +14,6 @@ import {
 import { queryStringParser } from '../general/Constants';
 import api from '../general/Api';
 
-//TODO verificar server side rendering
-
 const Search = () => {
     const [page, setPage] = useState(0);
     const [total, setTotal] = useState(0);
@@ -27,8 +25,8 @@ const Search = () => {
     const requestData = async () => {
         setLoading(true);
         const method = uf ? 'GET' : 'POST';
-        const params = uf ? { uf } : {} ;
-        const data = uf ? {} : { terms: terms.split(' ') }
+        const params = uf ? { uf, page } : {} ;
+        const data = uf ? {} : { terms: terms.split(' '), page }
 
         api({ method, url: 'politicos', params: { ...params, page }, data })
         .then(res => {
@@ -50,6 +48,7 @@ const Search = () => {
         requestData();
     }, [page, uf, terms]);
 
+
     const render = () => {
         if(loading) {
             return <LoadingSpinner show position='absolute' />
@@ -70,7 +69,6 @@ const Search = () => {
         
         return (
             <Container>
-                {/* <LoadingSpinner show={loading} position='absolute' /> */}
                 <ResultText>
                     <EvidenceText>
                         {total}
@@ -106,8 +104,6 @@ const Search = () => {
             </Container>
         )
     }
-
-    console.log({ page })
 
     return (
         <Layout headerContent={<SearchBar marginTopOnMobile={'60px'}/>}>

@@ -24,28 +24,26 @@ import { formatDate, toMoney } from '../general/Constants';
 import { ChartTitle } from '../styles/ChartStyles';
 import api from '../general/Api';
 
-// TODO refatorar requisição
-
 const ExpensesTable = ({ id, title }) => {
     const [expenses, setExpenses] = useState([]);
     const [page, setPage] = useState(0);
-    const [total, setTotal] = useState(0);
     const [pages, setPages] = useState(1);
     const [loading, setLoading] = useState(true);
    
     const requestPage = async () => {
         setLoading(true);
         try{
-            const expenses = await api.get('expenses', { params: {
+            const res = await api.get('expenses', { params: {
                 politicianId: id,
                 perPage: 20,
                 page,
             }});
 
-            console.log(expenses);
+            const { expenses = [], pages = 0 } = res.data;
 
-            //await this.setState({ ...expenses.data, loading: false });
-    
+            setExpenses(expenses);
+            setPages(pages)
+            setLoading(false);
         } catch (error) {
             setLoading(false);
         }

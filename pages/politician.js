@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
     Layout, 
     PieChart,
     VerticalBarChart,
     HorizontalBarChart,
     ChairChart,
-    ExpensesTable
+    ExpensesTable,
+    LoadingSpinner
 } from '../components';
 import {
     HeaderContainer,
@@ -28,8 +29,8 @@ import {
     convertExpensesByType,
     toMoney
 } from '../general/Constants';
-import API from '../general/Api';
-import { currentYear } from '../general/Constants';
+import api from '../general/Api';
+import { currentYear, queryStringParser } from '../general/Constants';
 
 const HeaderContent = props => (
     <HeaderContainer>
@@ -47,51 +48,70 @@ const HeaderContent = props => (
     </HeaderContainer>
 );
 
-export default class Politician extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            ...this.props
+const Politician = () => {
+   const [generalData, setGeneralData] = useState({});
+   const [expensesData, setExpensesData] = useState({});
+   const [loading, setLoading] = useState(true);
+    
+    const loadData = async () => {
+        const { id } = queryStringParser(location.search);
+
+        try {
+            const [generalRes, expensesRes] = await Promise.all([
+                api.get(`politicos/${id}`),
+                api.get(`expenses/charts?politicianId=${id}`),
+            ]);
+
+            const {
+                expensesByMonth,
+                expensesByTopNProviders,
+                expensesByType,
+            } = expensesRes.data;
+
+            const general = convertGeneralData(generalRes.data);
+            const expenses = {
+                month: convertExpensesByMonth(expensesByMonth),
+                topNProviders: convertExpensesByTopNProviders(expensesByTopNProviders),
+                type: convertExpensesByType(expensesByType),
+            };
+
+            setGeneralData(general);
+            setExpensesData(expenses);
+            setLoading(false);
+        } catch (err) {
+            setGeneralData({});
+            setExpensesData({});
+            setLoading(false);
         }
     }
-    
-    render() {
-        return(
-            <Layout headerContent={<HeaderContent {...this.state} />}>
-                <Container>
-                    <VerticalBarChart title={`Gastos por mês no ano de ${currentYear}`} data={this.state.expensesByMonthData} />
-                    <PieChart title={`Gastos de ${currentYear} divididos por categoria`} data={this.state.expensesByType}/>
-                    <ChairChart
-                    frequency={this.state.frequency}
-                    title={`Presenças nas sessões no ano de ${currentYear}`} 
-                    />
-                    <HorizontalBarChart title={`Maiores beneficiários dos gastos de ${currentYear}`} data={this.state.expensesByTopNProviders} />
-                    <ExpensesTable id={this.props.politicianId} title={'Classificação das despesas'} />
-                </Container>
-            </Layout>
+
+    useEffect(() => {
+        loadData();
+    }, [])
+
+    if (loading) {
+        return (
+            <LoadingSpinner show={loading} position='fixed'/>
         );
     }
+
+    const { month, topNProviders, type } = expensesData;
+    const { frequency, id } = generalData;
+    return(
+        <Layout headerContent={<HeaderContent {...generalData} />}>
+            <Container>
+                <VerticalBarChart title={`Gastos por mês no ano de ${currentYear}`} data={month} />
+                <PieChart title={`Gastos de ${currentYear} divididos por categoria`} data={type}/>
+                <ChairChart
+                frequency={frequency}
+                title={`Presenças nas sessões no ano de ${currentYear}`} 
+                />
+                <HorizontalBarChart title={`Maiores beneficiários dos gastos de ${currentYear}`} data={topNProviders} />
+                <ExpensesTable id={id} title={'Classificação das despesas'} />
+            </Container>                
+        </Layout>
+    );
 }
 
+export default Politician;
 
-Politician.getInitialProps = async context => {
-    const { id } = context.query;
-
-    try{
-        const general = await API.get(`politicos/${id}`);
-        console.log('Frequency', general.data)
-        const expenses = await API.get(`expenses/charts?politicianId=${id}`);
-        console.log('Expenses', convertExpensesByMonth(expenses.data.expensesByMonth).datasets)
-        return({
-            politicianId: id,
-            ...convertGeneralData(general.data),
-            status: general.status,
-            expensesByMonthData: convertExpensesByMonth(expenses.data.expensesByMonth),
-            expensesByTopNProviders: convertExpensesByTopNProviders(expenses.data.expensesByTopNProviders),
-            expensesByType: convertExpensesByType(expenses.data.expensesByType),
-        });
-
-    } catch (error) {
-        console.log(error.response.data.message)
-    }
-}

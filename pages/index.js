@@ -30,7 +30,6 @@ const Initial = () => {
 
     const addStateActions = (err, element) => {
         const svgStates = element.getElementsByClassName('c');
-        console.log({ svgStates })
         Array.from(svgStates).forEach((el, index) => {
             el.addEventListener('click', () => {
                 router.push({
